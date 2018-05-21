@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  =======================================================================
+    Compiler build file
+  =======================================================================
+-->
+<project name="Generic Abstract Interpretation Library" default="classes" basedir=".">
+    <!-- Set global properties for this build -->
+    <property name="src" value="src"/>
+    <property name="lib" value="lib"/>
+    <property name="build" value="build"/>
+    <property name="javadocs" value="javadocs"/>
+
+    <!--
+       ===================================================================
+         Sets up internal values
+       ===================================================================
+  -->
+    <target name="init" description="-> sets up internal values">
+        <!-- Create the directory for classes and other resources -->
+        <mkdir dir="${build}"/>
+    </target>
+
+    <!--
+       ===================================================================
+         Compiles the sources
+       ===================================================================
+  -->
+    <target name="classes" depends="init" description="-> compiles the source code to create the tree of classes">
+        <!-- Compile the java code from ${src} into ${classes} -->
+        <echo message="Compiling sources..."/>
+        <javac srcdir="${src}"
+           destdir="${build}"
+           source="1.7"
+           classpath="${lib}/soot-22-8-2014.jar"
+           includeantruntime="false"/>
+    </target>
+	
+    <!--
+       ===================================================================
+         Create javadocs
+       ===================================================================
+  -->
+    <target name="javadocs" depends="init" description="-> creates javadocs">
+    	 <javadoc packagenames="bgu.*, benchmarks.*"
+    	           sourcepath="src"
+    	 		   classpath="${lib}/soot-22-8-2014.jar"
+    	           defaultexcludes="yes"
+    	           destdir="docs/api"
+    	           author="true"
+    	           version="true"
+    	           use="true"
+    	           windowtitle="Generic Abstract Interpretation Library">
+    	 	</javadoc>
+    </target>	
+
+    <!--
+       ===================================================================
+         Cleans and the builds
+       ===================================================================
+  -->
+    <target name="rebuild" depends="clean, classes" description="-> first cleans and then build everything">
+    </target>
+
+    <!--
+       ===================================================================
+         Deletes the build directory tree
+       ===================================================================
+  -->
+    <target name="clean" description="-> cleans up build and dist directories">
+        <delete dir="${build}"/>
+    </target>
+</project>

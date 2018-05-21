@@ -1,0 +1,535 @@
+public class SLLSizeBenchmarks extends java.lang.Object
+{
+/*SLLSizeBenchmarks.java*/
+
+/*[x]*/
+    public static void analysisInitAcyclic(SLLSizeBenchmarks$Node)
+    {
+        SLLSizeBenchmarks$Node x;
+
+        x := @parameter0: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 41 epos: 46 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 41 epos: 46 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[]*/
+    public static void analysisInitAllNulls()
+    {
+        return;
+/*Source Line Pos Tag: sline: 30 eline: 31 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[x, message]*/
+    public static void analysisAssertNotNull(SLLSizeBenchmarks$Node, java.lang.String)
+    {
+        SLLSizeBenchmarks$Node x;
+        java.lang.String message;
+
+        x := @parameter0: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 37 eline: 37 spos: 43 epos: 48 file: SLLSizeBenchmarks.java*/
+        message := @parameter1: java.lang.String;
+/*Source Line Pos Tag: sline: 37 eline: 37 spos: 51 epos: 64 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 37 eline: 37 spos: 51 epos: 64 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[x, y, message]*/
+    public static void analysisAssertReachable(SLLSizeBenchmarks$Node, SLLSizeBenchmarks$Node, java.lang.String)
+    {
+        SLLSizeBenchmarks$Node x, y;
+        java.lang.String message;
+
+        x := @parameter0: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 46 eline: 46 spos: 45 epos: 50 file: SLLSizeBenchmarks.java*/
+        y := @parameter1: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 46 eline: 46 spos: 53 epos: 58 file: SLLSizeBenchmarks.java*/
+        message := @parameter2: java.lang.String;
+/*Source Line Pos Tag: sline: 46 eline: 46 spos: 61 epos: 74 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 46 eline: 46 spos: 61 epos: 74 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[x, y, message]*/
+    public static void analysisAssertDisjoint(SLLSizeBenchmarks$Node, SLLSizeBenchmarks$Node, java.lang.String)
+    {
+        SLLSizeBenchmarks$Node x, y;
+        java.lang.String message;
+
+        x := @parameter0: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 54 eline: 54 spos: 44 epos: 49 file: SLLSizeBenchmarks.java*/
+        y := @parameter1: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 54 eline: 54 spos: 52 epos: 57 file: SLLSizeBenchmarks.java*/
+        message := @parameter2: java.lang.String;
+/*Source Line Pos Tag: sline: 54 eline: 54 spos: 60 epos: 73 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 54 eline: 54 spos: 60 epos: 73 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[x, message]*/
+    public static void analysisAssertAcyclic(SLLSizeBenchmarks$Node, java.lang.String)
+    {
+        SLLSizeBenchmarks$Node x;
+        java.lang.String message;
+
+        x := @parameter0: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 62 eline: 62 spos: 43 epos: 48 file: SLLSizeBenchmarks.java*/
+        message := @parameter1: java.lang.String;
+/*Source Line Pos Tag: sline: 62 eline: 62 spos: 51 epos: 64 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 62 eline: 62 spos: 51 epos: 64 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[x, message]*/
+    public static void analysisAssertCyclic(SLLSizeBenchmarks$Node, java.lang.String)
+    {
+        SLLSizeBenchmarks$Node x;
+        java.lang.String message;
+
+        x := @parameter0: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 70 eline: 70 spos: 42 epos: 47 file: SLLSizeBenchmarks.java*/
+        message := @parameter1: java.lang.String;
+/*Source Line Pos Tag: sline: 70 eline: 70 spos: 50 epos: 63 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 70 eline: 70 spos: 50 epos: 63 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[message]*/
+    public static void analysisAssertNoGarbage(java.lang.String)
+    {
+        java.lang.String message;
+
+        message := @parameter0: java.lang.String;
+/*Source Line Pos Tag: sline: 81 eline: 81 spos: 45 epos: 58 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 81 eline: 81 spos: 45 epos: 58 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[list1, list2, diff, message]*/
+    public static void analysisLengthDiff(SLLSizeBenchmarks$Node, SLLSizeBenchmarks$Node, int, java.lang.String)
+    {
+        SLLSizeBenchmarks$Node list1, list2;
+        int diff;
+        java.lang.String message;
+
+        list1 := @parameter0: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 88 eline: 88 spos: 40 epos: 49 file: SLLSizeBenchmarks.java*/
+        list2 := @parameter1: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 88 eline: 88 spos: 52 epos: 61 file: SLLSizeBenchmarks.java*/
+        diff := @parameter2: int;
+/*Source Line Pos Tag: sline: 88 eline: 88 spos: 64 epos: 71 file: SLLSizeBenchmarks.java*/
+        message := @parameter3: java.lang.String;
+/*Source Line Pos Tag: sline: 88 eline: 88 spos: 74 epos: 87 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 88 eline: 88 spos: 74 epos: 87 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[message]*/
+    private final void error(java.lang.String)
+    {
+        SLLSizeBenchmarks this;
+        java.lang.String message;
+
+        this := @this: SLLSizeBenchmarks;
+/*Source Line Pos Tag: sline: 94 eline: 95 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
+        message := @parameter0: java.lang.String;
+/*Source Line Pos Tag: sline: 94 eline: 94 spos: 21 epos: 34 file: SLLSizeBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 94 eline: 94 spos: 21 epos: 34 file: SLLSizeBenchmarks.java*/
+    }
+
+/*[head, key]*/
+    public SLLSizeBenchmarks$Node find(SLLSizeBenchmarks$Node, int)
+    {
+        SLLSizeBenchmarks this;
+        SLLSizeBenchmarks$Node head, result, curr, temp$1;
+        int key, temp$0;
+
+        this := @this: SLLSizeBenchmarks;
+/*Source Line Pos Tag: sline: 101 eline: 113 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
+/*V[0] = true // this := @this: SLLSizeBenchmarks*/
+/*V[0] : true*/
+/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
+/*V[1] : true*/
+        head := @parameter0: SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 101 eline: 101 spos: 19 epos: 27 file: SLLSizeBenchmarks.java*/
+/*V[2] = V[1] // head := @parameter0: SLLSizeBenchmarks$Node*/
+/*V[2] : true*/
+        key := @parameter1: int;
+/*Source Line Pos Tag: sline: 101 eline: 101 spos: 30 epos: 36 file: SLLSizeBenchmarks.java*/
+/*V[3] = V[2] // key := @parameter1: int*/
+/*V[3] : true*/
+        staticinvoke <SLLSizeBenchmarks: void analysisInitAcyclic(SLLSizeBenchmarks$Node)>(head);
+/*Source Line Pos Tag: sline: 102 eline: 102 spos: 3 epos: 28 file: SLLSizeBenchmarks.java*/
+/*V[4] = InitAcyclicTransformer(V[3]) // staticinvoke <SLLSizeBenchmarks: void analysisInitAcyclic(SLLSizeBenchmarks$Node)>(head)*/
+/*V[4] : or(graph = {}, graph = {head=n0, n0.next=null})*/
+        result = null;
+/*Source Line Pos Tag: sline: 103 eline: 103 spos: 3 epos: 21 file: SLLSizeBenchmarks.java*/
+/*V[5] = V[4] // result = null*/
+/*V[5] : or(graph = {}, graph = {head=n0, n0.next=null})*/
+        curr = head;
+/*Source Line Pos Tag: sline: 104 eline: 104 spos: 3 epos: 19 file: SLLSizeBenchmarks.java*/
+/*V[6] = V[5] // curr = head*/
+/*V[6] : or(graph = {}, graph = {head=n0, n0.next=null})*/
+
+     label1:
+        if curr != null goto label2;
+/*Source Line Pos Tag: sline: 105 eline: 105 spos: 10 epos: 21 file: SLLSizeBenchmarks.java*/
+/*V[7] = !AssumeLocalEqNullTransformer(V[9]) // assume curr != null*/
+/*V[7] : or(graph = {head=n0, n0.next=null}, graph = {})*/
+/*V[8] = AssumeLocalEqNullTransformer(V[9]) // assume !(curr != null)*/
+/*V[8] : false*/
+/*V[9] = JoinLoop_SLLDomain(V[6], V[19]) // if curr != null goto temp$0 = curr.<SLLSizeBenchmarks$Node: int data>*/
+/*V[9] : or(graph = {head=n0, n0.next=null}, graph = {})*/
+
+        goto label5;
+/*Source Line Pos Tag: sline: 105 eline: 105 spos: 10 epos: 21 file: SLLSizeBenchmarks.java*/
+/*V[10] = V[8] // goto [?= return result]*/
+/*V[10] : false*/
+
+     label2:
+        temp$0 = curr.<SLLSizeBenchmarks$Node: int data>;
+/*Source Line Pos Tag: sline: 106 eline: 106 spos: 8 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[11] = V[7] // temp$0 = curr.<SLLSizeBenchmarks$Node: int data>*/
+/*V[11] : or(graph = {head=n0, n0.next=null}, graph = {})*/
+        if temp$0 == key goto label3;
+/*Source Line Pos Tag: sline: 106 eline: 106 spos: 8 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[12] = AssumeLocalEqLocalTransformer(V[11]) // assume temp$0 == key*/
+/*V[12] : or(graph = {head=n0, n0.next=null}, graph = {})*/
+/*V[13] = !AssumeLocalEqLocalTransformer(V[11]) // assume !(temp$0 == key)*/
+/*V[13] : false*/
+
+        goto label4;
+/*Source Line Pos Tag: sline: 106 eline: 106 spos: 8 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[14] = V[13] // goto [?= temp$1 = curr.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>]*/
+/*V[14] : false*/
+
+     label3:
+        result = curr;
+/*Source Line Pos Tag: sline: 107 eline: 107 spos: 5 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[15] = V[12] // result = curr*/
+/*V[15] : or(graph = {head=n0, n0.next=null}, graph = {})*/
+        goto label5;
+/*Source Line Pos Tag: sline: 108 eline: 108 spos: 5 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[16] = V[15] // goto [?= return result]*/
+/*V[16] : or(graph = {head=n0, n0.next=null}, graph = {})*/
+
+     label4:
+        temp$1 = curr.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 110 eline: 110 spos: 4 epos: 20 file: SLLSizeBenchmarks.java*/
+/*V[17] = AssignNextToLocalTransformer(V[14]) // temp$1 = curr.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[17] : false*/
+        curr = temp$1;
+/*Source Line Pos Tag: sline: 110 eline: 110 spos: 4 epos: 7 file: SLLSizeBenchmarks.java*/
+/*V[18] = V[17] // curr = temp$1*/
+/*V[18] : false*/
+        goto label1;
+/*Source Line Pos Tag: sline: 105 eline: 111 spos: 3 epos: 3 file: SLLSizeBenchmarks.java*/
+/*V[19] = V[18] // goto [?= (branch)]*/
+/*V[19] : false*/
+
+     label5:
+        return result;
+/*Source Line Pos Tag: sline: 112 eline: 112 spos: 3 epos: 16 file: SLLSizeBenchmarks.java*/
+/*V[20] = V[21] // return result*/
+/*V[20] : or(graph = {head=n0, n0.next=null}, graph = {})*/
+/*V[21] = Join_SLLDomain(V[10], V[16]) // return result*/
+/*V[21] : or(graph = {head=n0, n0.next=null}, graph = {})*/
+    }
+
+/*[size]*/
+    public SLLSizeBenchmarks$Node createAndPrint(int)
+    {
+        SLLSizeBenchmarks this;
+        int size, i, temp$2;
+        SLLSizeBenchmarks$Node head1, head2, n1, temp$0, n2, temp$1, t1, t2, temp$3, temp$4;
+
+        this := @this: SLLSizeBenchmarks;
+/*Source Line Pos Tag: sline: 124 eline: 155 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
+/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: SLLSizeBenchmarks*/
+/*V[0] : true*/
+        size := @parameter0: int;
+/*Source Line Pos Tag: sline: 124 eline: 124 spos: 29 epos: 36 file: SLLSizeBenchmarks.java*/
+/*V[2] = V[1] // size := @parameter0: int*/
+/*V[2] : true*/
+        head1 = null;
+/*Source Line Pos Tag: sline: 125 eline: 125 spos: 3 epos: 20 file: SLLSizeBenchmarks.java*/
+/*V[3] = V[2] // head1 = null*/
+/*V[3] : true*/
+        head2 = null;
+/*Source Line Pos Tag: sline: 126 eline: 126 spos: 3 epos: 20 file: SLLSizeBenchmarks.java*/
+/*V[4] = V[3] // head2 = null*/
+/*V[4] : true*/
+        i = 0;
+/*Source Line Pos Tag: sline: 127 eline: 127 spos: 8 epos: 16 file: SLLSizeBenchmarks.java*/
+/*V[5] = V[4] // i = 0*/
+/*V[5] : true*/
+
+     label1:
+        if i < size goto label2;
+/*Source Line Pos Tag: sline: 127 eline: 127 spos: 19 epos: 26 file: SLLSizeBenchmarks.java*/
+/*V[7] = V[8] // assume !(i < size)*/
+/*V[7] : true*/
+/*V[6] = V[8] // assume i < size*/
+/*V[6] : true*/
+/*V[8] = JoinLoop_SLLDomain(V[5], V[24]) // if i < size goto temp$0 = new SLLSizeBenchmarks$Node*/
+/*V[8] : true*/
+
+        goto label3;
+/*Source Line Pos Tag: sline: 127 eline: 127 spos: 19 epos: 26 file: SLLSizeBenchmarks.java*/
+/*V[9] = V[7] // goto [?= staticinvoke <SLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!")]*/
+/*V[9] : true*/
+
+     label2:
+        temp$0 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 128 eline: 128 spos: 4 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[10] = V[6] // temp$0 = new SLLSizeBenchmarks$Node*/
+/*V[10] : true*/
+        specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 128 eline: 128 spos: 14 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[11] = V[10] // specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[11] : true*/
+        n1 = temp$0;
+/*Source Line Pos Tag: sline: 128 eline: 128 spos: 14 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[12] = V[11] // n1 = temp$0*/
+/*V[12] : true*/
+        n1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = head1;
+/*Source Line Pos Tag: sline: 129 eline: 129 spos: 7 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[13] = V[12] // n1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = head1*/
+/*V[13] : true*/
+        n1.<SLLSizeBenchmarks$Node: int data> = i;
+/*Source Line Pos Tag: sline: 130 eline: 130 spos: 7 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[14] = V[13] // n1.<SLLSizeBenchmarks$Node: int data> = i*/
+/*V[14] : true*/
+        head1 = n1;
+/*Source Line Pos Tag: sline: 131 eline: 131 spos: 4 epos: 8 file: SLLSizeBenchmarks.java*/
+/*V[15] = V[14] // head1 = n1*/
+/*V[15] : true*/
+        temp$1 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 133 eline: 133 spos: 4 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[16] = V[15] // temp$1 = new SLLSizeBenchmarks$Node*/
+/*V[16] : true*/
+        specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 133 eline: 133 spos: 14 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[17] = V[16] // specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[17] : true*/
+        n2 = temp$1;
+/*Source Line Pos Tag: sline: 133 eline: 133 spos: 14 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[18] = V[17] // n2 = temp$1*/
+/*V[18] : true*/
+        n2.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = head1;
+/*Source Line Pos Tag: sline: 134 eline: 134 spos: 7 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[19] = V[18] // n2.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = head1*/
+/*V[19] : true*/
+        n2.<SLLSizeBenchmarks$Node: int data> = i;
+/*Source Line Pos Tag: sline: 135 eline: 135 spos: 7 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[20] = V[19] // n2.<SLLSizeBenchmarks$Node: int data> = i*/
+/*V[20] : true*/
+        head2 = n2;
+/*Source Line Pos Tag: sline: 136 eline: 136 spos: 4 epos: 8 file: SLLSizeBenchmarks.java*/
+/*V[21] = V[20] // head2 = n2*/
+/*V[21] : true*/
+        temp$2 = i + 1;
+/*Source Line Pos Tag: sline: 127 eline: 127 spos: 29 epos: 31 file: SLLSizeBenchmarks.java*/
+/*V[22] = V[21] // temp$2 = i + 1*/
+/*V[22] : true*/
+        i = temp$2;
+/*Source Line Pos Tag: sline: 127 eline: 127 spos: 31 epos: 31 file: SLLSizeBenchmarks.java*/
+/*V[23] = V[22] // i = temp$2*/
+/*V[23] : true*/
+        goto label1;
+/*Source Line Pos Tag: sline: 127 eline: 137 spos: 3 epos: 3 file: SLLSizeBenchmarks.java*/
+/*V[24] = V[23] // goto [?= (branch)]*/
+/*V[24] : true*/
+
+     label3:
+        staticinvoke <SLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!");
+/*Source Line Pos Tag: sline: 138 eline: 138 spos: 3 epos: 75 file: SLLSizeBenchmarks.java*/
+/*V[25] = V[9] // staticinvoke <SLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!")*/
+/*V[25] : true*/
+        staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 0, "Unable to assert size difference!");
+/*Source Line Pos Tag: sline: 141 eline: 141 spos: 3 epos: 75 file: SLLSizeBenchmarks.java*/
+/*V[26] = V[25] // staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 0, "Unable to assert size difference!")*/
+/*V[26] : true*/
+        staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(head2, head1, 0, "Unable to assert size difference!");
+/*Source Line Pos Tag: sline: 142 eline: 142 spos: 3 epos: 75 file: SLLSizeBenchmarks.java*/
+/*V[27] = V[26] // staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(head2, head1, 0, "Unable to assert size difference!")*/
+/*V[27] : true*/
+        t1 = head1;
+/*Source Line Pos Tag: sline: 144 eline: 144 spos: 3 epos: 18 file: SLLSizeBenchmarks.java*/
+/*V[28] = V[27] // t1 = head1*/
+/*V[28] : true*/
+        t2 = head2;
+/*Source Line Pos Tag: sline: 145 eline: 145 spos: 3 epos: 18 file: SLLSizeBenchmarks.java*/
+/*V[29] = V[28] // t2 = head2*/
+/*V[29] : true*/
+
+     label4:
+        if t1 != null goto label5;
+/*Source Line Pos Tag: sline: 146 eline: 146 spos: 10 epos: 19 file: SLLSizeBenchmarks.java*/
+/*V[30] = !AssumeLocalEqNullTransformer(V[32]) // assume t1 != null*/
+/*V[30] : false*/
+/*V[31] = AssumeLocalEqNullTransformer(V[32]) // assume !(t1 != null)*/
+/*V[31] : false*/
+/*V[32] = JoinLoop_SLLDomain(V[29], V[38]) // if t1 != null goto temp$3 = t1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[32] : true*/
+
+        goto label6;
+/*Source Line Pos Tag: sline: 146 eline: 146 spos: 10 epos: 19 file: SLLSizeBenchmarks.java*/
+/*V[33] = V[31] // goto [?= return head1]*/
+/*V[33] : false*/
+
+     label5:
+        temp$3 = t1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 149 eline: 149 spos: 4 epos: 16 file: SLLSizeBenchmarks.java*/
+/*V[34] = AssignNextToLocalTransformer(V[30]) // temp$3 = t1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[34] : false*/
+        t1 = temp$3;
+/*Source Line Pos Tag: sline: 149 eline: 149 spos: 4 epos: 5 file: SLLSizeBenchmarks.java*/
+/*V[35] = V[34] // t1 = temp$3*/
+/*V[35] : false*/
+        temp$4 = t2.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 152 eline: 152 spos: 4 epos: 16 file: SLLSizeBenchmarks.java*/
+/*V[36] = AssignNextToLocalTransformer(V[35]) // temp$4 = t2.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[36] : false*/
+        t2 = temp$4;
+/*Source Line Pos Tag: sline: 152 eline: 152 spos: 4 epos: 5 file: SLLSizeBenchmarks.java*/
+/*V[37] = V[36] // t2 = temp$4*/
+/*V[37] : false*/
+        goto label4;
+/*Source Line Pos Tag: sline: 146 eline: 153 spos: 3 epos: 3 file: SLLSizeBenchmarks.java*/
+/*V[38] = V[37] // goto [?= (branch)]*/
+/*V[38] : false*/
+
+     label6:
+        return head1;
+/*Source Line Pos Tag: sline: 154 eline: 154 spos: 3 epos: 15 file: SLLSizeBenchmarks.java*/
+/*V[39] = V[33] // return head1*/
+/*V[39] : false*/
+    }
+
+/*[]*/
+    public void createAndPrintSmall()
+    {
+        SLLSizeBenchmarks this;
+        SLLSizeBenchmarks$Node head, temp$0, temp$1, temp$2, temp$3, temp$4, temp$5, temp$6, t, temp$7, temp$8, temp$9;
+
+        this := @this: SLLSizeBenchmarks;
+/*Source Line Pos Tag: sline: 158 eline: 168 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
+/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: SLLSizeBenchmarks*/
+/*V[0] : true*/
+        temp$0 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 159 eline: 159 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[2] = V[1] // temp$0 = new SLLSizeBenchmarks$Node*/
+/*V[2] : true*/
+        specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 159 eline: 159 spos: 15 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[3] = V[2] // specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[3] : true*/
+        head = temp$0;
+/*Source Line Pos Tag: sline: 159 eline: 159 spos: 15 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[4] = V[3] // head = temp$0*/
+/*V[4] : true*/
+        temp$1 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 160 eline: 160 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[5] = V[4] // temp$1 = new SLLSizeBenchmarks$Node*/
+/*V[5] : true*/
+        specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 160 eline: 160 spos: 15 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[6] = V[5] // specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[6] : true*/
+        head.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$1;
+/*Source Line Pos Tag: sline: 160 eline: 160 spos: 8 epos: 11 file: SLLSizeBenchmarks.java*/
+/*V[7] = V[6] // head.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$1*/
+/*V[7] : true*/
+        temp$2 = head.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 161 eline: 161 spos: 3 epos: 30 file: SLLSizeBenchmarks.java*/
+/*V[8] = AssignNextToLocalTransformer(V[7]) // temp$2 = head.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[8] : false*/
+        temp$3 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 161 eline: 161 spos: 3 epos: 30 file: SLLSizeBenchmarks.java*/
+/*V[9] = V[8] // temp$3 = new SLLSizeBenchmarks$Node*/
+/*V[9] : false*/
+        specialinvoke temp$3.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 161 eline: 161 spos: 20 epos: 29 file: SLLSizeBenchmarks.java*/
+/*V[10] = V[9] // specialinvoke temp$3.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[10] : false*/
+        temp$2.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$3;
+/*Source Line Pos Tag: sline: 161 eline: 161 spos: 13 epos: 16 file: SLLSizeBenchmarks.java*/
+/*V[11] = V[10] // temp$2.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$3*/
+/*V[11] : false*/
+        temp$4 = head.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 162 eline: 162 spos: 3 epos: 35 file: SLLSizeBenchmarks.java*/
+/*V[12] = AssignNextToLocalTransformer(V[11]) // temp$4 = head.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[12] : false*/
+        temp$5 = temp$4.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 162 eline: 162 spos: 3 epos: 35 file: SLLSizeBenchmarks.java*/
+/*V[13] = AssignNextToLocalTransformer(V[12]) // temp$5 = temp$4.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[13] : false*/
+        temp$6 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 162 eline: 162 spos: 3 epos: 35 file: SLLSizeBenchmarks.java*/
+/*V[14] = V[13] // temp$6 = new SLLSizeBenchmarks$Node*/
+/*V[14] : false*/
+        specialinvoke temp$6.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 162 eline: 162 spos: 25 epos: 34 file: SLLSizeBenchmarks.java*/
+/*V[15] = V[14] // specialinvoke temp$6.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[15] : false*/
+        temp$5.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$6;
+/*Source Line Pos Tag: sline: 162 eline: 162 spos: 18 epos: 21 file: SLLSizeBenchmarks.java*/
+/*V[16] = V[15] // temp$5.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$6*/
+/*V[16] : false*/
+        temp$7 = head.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 163 eline: 163 spos: 3 epos: 36 file: SLLSizeBenchmarks.java*/
+/*V[17] = AssignNextToLocalTransformer(V[16]) // temp$7 = head.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[17] : false*/
+        temp$8 = temp$7.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 163 eline: 163 spos: 3 epos: 36 file: SLLSizeBenchmarks.java*/
+/*V[18] = AssignNextToLocalTransformer(V[17]) // temp$8 = temp$7.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[18] : false*/
+        temp$9 = temp$8.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 163 eline: 163 spos: 3 epos: 36 file: SLLSizeBenchmarks.java*/
+/*V[19] = AssignNextToLocalTransformer(V[18]) // temp$9 = temp$8.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[19] : false*/
+        t = temp$9.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 163 eline: 163 spos: 3 epos: 36 file: SLLSizeBenchmarks.java*/
+/*V[20] = AssignNextToLocalTransformer(V[19]) // t = temp$9.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[20] : false*/
+        if t != null goto label1;
+/*Source Line Pos Tag: sline: 164 eline: 164 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/
+/*V[21] = !AssumeLocalEqNullTransformer(V[20]) // assume t != null*/
+/*V[21] : false*/
+/*V[22] = AssumeLocalEqNullTransformer(V[20]) // assume !(t != null)*/
+/*V[22] : false*/
+
+        goto label1;
+/*Source Line Pos Tag: sline: 164 eline: 164 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/
+/*V[23] = V[22] // goto [?= return]*/
+/*V[23] : false*/
+
+     label1:
+        return;
+/*Source Line Pos Tag: sline: 164 eline: 164 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/
+/*V[24] = V[25] // return*/
+/*V[24] : false*/
+/*V[25] = Join_SLLDomain(V[21], V[23]) // return*/
+/*V[25] : false*/
+    }
+
+/*[]*/
+/*8*/
+    public void <init>()
+    {
+        SLLSizeBenchmarks this;
+
+        this := @this: SLLSizeBenchmarks;
+/*9*/
+        specialinvoke this.<java.lang.Object: void <init>()>();
+/*9*/
+        return;
+/*9*/
+    }
+}

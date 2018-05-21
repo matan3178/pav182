@@ -1,0 +1,20 @@
+public static class SLLSizeBenchmarks$Node extends java.lang.Object
+{
+/*SLLSizeBenchmarks.java*/
+    public SLLSizeBenchmarks$Node next;
+    public int data;
+
+/*[]*/
+/*9*/
+    public void <init>()
+    {
+        SLLSizeBenchmarks$Node this;
+
+        this := @this: SLLSizeBenchmarks$Node;
+/*10*/
+        specialinvoke this.<java.lang.Object: void <init>()>();
+/*10*/
+        return;
+/*10*/
+    }
+}

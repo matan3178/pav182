@@ -1,0 +1,48 @@
+public class TestClass extends java.lang.Object
+{
+
+    public int avExample(int, int, int)
+    {
+        TestClass this;
+        int x, y, a, w, z, temp$0, b, temp$1, temp$2, c, temp$3, temp$4, temp$5, temp$6;
+
+        this := @this: TestClass;
+        x := @parameter0: int;
+        y := @parameter1: int;
+        a := @parameter2: int;
+        temp$0 = x;
+        z = temp$0 + y;
+        w = z;
+        b = z;
+        temp$1 = virtualinvoke this.<TestClass: int avExample(int,int,int)>(b, b, b);
+        b = temp$1;
+
+     label1:
+        if a == b goto label2;
+
+        goto label3;
+
+     label2:
+        temp$2 = a - 1;
+        a = temp$2;
+        temp$3 = x;
+        temp$4 = temp$3 + y;
+        c = temp$4 + w;
+        temp$5 = c;
+        temp$6 = temp$5 + a;
+        b = temp$6;
+        goto label1;
+
+     label3:
+        return b;
+    }
+
+    public void <init>()
+    {
+        TestClass this;
+
+        this := @this: TestClass;
+        specialinvoke this.<java.lang.Object: void <init>()>();
+        return;
+    }
+}
