@@ -1,27 +1,36 @@
 package bgu.cs.absint.analyses.sllSize;
 
+import java.io.IOError;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.management.RuntimeErrorException;
+
 import bgu.cs.absint.AbstractDomain;
 import bgu.cs.absint.AssumeTransformer;
 import bgu.cs.absint.BinaryOperation;
 import bgu.cs.absint.IdOperation;
 import bgu.cs.absint.UnaryOperation;
-import bgu.cs.absint.constructor.DisjunctiveState;
+import bgu.cs.absint.analyses.zone.ZoneFactoid;
+import bgu.cs.absint.constructor.DisjunctiveState;import bgu.cs.absint.constructor.Factoid;
 import bgu.cs.absint.soot.TransformerMatcher;
+import soot.IntType;
 import soot.Local;
 import soot.RefType;
 import soot.SootField;
 import soot.Type;
 import soot.Unit;
+import soot.Value;
 import soot.jimple.AssignStmt;
 import soot.jimple.IfStmt;
+import soot.jimple.IntConstant;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
+import soot.jimple.internal.JimpleLocal;
 
 /**
  * An abstract domain for the intraprocedural shape analysis of singly-linked
@@ -61,6 +70,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * The name of the next field of the list class.
 	 */
 	private String listClassField;
+	private static int counter=0;
 
 	public void setBodyLocals(Collection<Local> locals) {
 		this.locals = new LinkedHashSet<>(locals);
@@ -108,12 +118,13 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 
 		HashSet<SLLGraph> disjuncts = new HashSet<>();
 		for (SLLGraph graph : elem1) {
+
 			SLLGraph disjunct = generalize(graph);
-			disjuncts.add(disjunct);
+			disjuncts.add(disjunct);//TODO
 		}
 		for (SLLGraph graph : elem2) {
 			SLLGraph disjunct = generalize(graph);
-			disjuncts.add(disjunct);
+			disjuncts.add(disjunct);//TODO
 		}
 
 		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
@@ -186,14 +197,30 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * to null, except a given list variable, which points to an acyclic list of
 	 * size >= 0.
 	 */
+	public static Local int2local(int x)//TODO
+	{
+		JimpleLocal  j =  new JimpleLocal("loc_var"+counter++,IntType.v());
+		j.setNumber(x);
+		return j;
+	}
+	private Local int2local(Local x)//TODO
+	{
+		JimpleLocal  j =  new JimpleLocal("loc_var"+counter++,IntType.v());
+		return j;
+	}
 	public DisjunctiveState<SLLGraph> initAcyclic(Local x) {
 		SLLGraph graph1 = makeAllNullsGraph();
-		Node ptXOne = new Node(graph1.nullNode, 1);
+		Local local1 = int2local(1);
+		Node ptXOne = new Node(graph1.nullNode, local1);//TODO
+		graph1.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
 		graph1.addNode(ptXOne);
 		graph1.mapLocal(x, ptXOne);
 
 		SLLGraph graph2 = makeAllNullsGraph();
-		Node ptXGt1 = new Node(graph2.nullNode, 2); //SUPER TODO
+		Local local2 = int2local(2);
+		Node ptXGt1 = new Node(graph2.nullNode, local2); //SUPER TODO
+		graph1.sizes.addFactoid(ZoneFactoid.ZERO_VAR, local2, IntConstant.v(-2));
+
 		graph2.addNode(ptXGt1);
 		graph2.mapLocal(x, ptXGt1);
 
@@ -211,7 +238,18 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	public SLLGraph focusOne(SLLGraph graph, Local var) {
 		//TODO
 		SLLGraph result = graph.copy();
-		result.pointsTo(var).edgeLen = 1;
+		Local local1 = int2local(1);
+		
+		
+		result.sizes.removeVar(var);
+		result.sizes.addFactoid(var, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
+		Node rhsNode = result.pointsTo(var);
+		Node rhsNextNode = rhsNode.next;
+		
+		Node node = new Node(rhsNextNode, local1); 
+		rhsNode.next = node;
+		result.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(1));	
+		
 		return result;
 	}
 
@@ -223,15 +261,25 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 */
 	public SLLGraph focusGtOne(SLLGraph graph, Local var) {
 		SLLGraph result = graph.copy();
+		Local local1 = int2local(1);
+		
+		Collection<ZoneFactoid> collec = result.sizes.getFactoids();
+		int len = -1;
+		for(ZoneFactoid zf : collec){
+			if(zf.equalVars(var, ZoneFactoid.ZERO_VAR))
+				len = zf.bound.value;
+		}
+		if(len == -1)
+			throw new RuntimeException("FCK");
+		result.sizes.removeVar(var);
+		result.sizes.addFactoid(var, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
 		Node rhsNode = result.pointsTo(var);
 		Node rhsNextNode = rhsNode.next;
 		
-		int currentLen = rhsNode.edgeLen; // the current length of the node
+		Node node = new Node(rhsNextNode, local1); 
+		rhsNode.next = node;
+		result.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(len-1));	
 		
-		Node newNextNode = new Node(rhsNextNode, currentLen - 1);
-		result.addNode(newNextNode);
-		rhsNode.next = newNextNode;
-		rhsNode.edgeLen = 1;
 		return result;
 	}
 
@@ -259,7 +307,9 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				if (!isNextInterruption) {
 					change = true;
 					n.next = n.next.next;
-					n.edgeLen = n.edgeLen + n.next.edgeLen; // update the length of the edge
+					int a = n.edgeLen.getNumber();
+					int b = n.edgeLen.getNumber();
+					n.edgeLen =int2local(a+b); // update the length of the edge
 				}
 			}
 		}
@@ -348,7 +398,19 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				// transformer = new AssertDisjointTransformer();
 			} else if (methodName.equals("analysisAssertNoGarbage")) {
 				// transformer = new AssertNoGarbageTransformer();
+			} else if (methodName.equals("analysisLengthDiff"))
+			{
+				Local a = (Local)expr.getArg(0);
+				Local b = (Local) expr.getArg(1);
+				IntConstant c =  (IntConstant) expr.getArg(2);
+				int val = c.value;
+				if(a !=null)
+				{
+					Local d = a;
+				}
+				AnalysisLengthDiffTransformer samek = new AnalysisLengthDiffTransformer(null,null,0);
 			}
+			
 		}
 
 		@Override
@@ -378,7 +440,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		 * Matches statements of the form {@code x=y.f} where 'x' and 'y' are
 		 * local variables.
 		 */
-		@Override
+		@Override//TODO look at this function
 		public void matchAssignInstanceFieldRefToLocal(AssignStmt stmt,
 				Local lhs, Local rhs, SootField field) {
 			if (field.getName().equals(listClassField)) {
@@ -433,7 +495,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			for (SLLGraph graph : input) {
 				SLLGraph disjunct = graph.copy();
 				disjunct.unmapLocal(lhs);
-				Node newNode = new Node(disjunct.nullNode, 1);//TODO
+				Node newNode = new Node(disjunct.nullNode, int2local(1));//TODO
 				disjunct.addNode(newNode);
 				disjunct.mapLocal(lhs, newNode);
 				disjuncts.add(disjunct);
@@ -505,7 +567,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	/**
 	 * A transformer for statements of the form {@code x=y.next}.
 	 * 
-	 * @author romanm
+	 * @author romanm//TODO getNext
 	 */
 	protected class AssignNextToLocalTransformer extends
 			UnaryOperation<DisjunctiveState<SLLGraph>> {
@@ -524,7 +586,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				Node rhsNode = graph.pointsTo(rhs);
 				if (rhsNode == graph.nullNode) {
 					// Skip this graph as it raises a NullPointerException.
-				} else if (rhsNode.edgeLen == 1) { //TODO
+				} else if (rhsNode.edgeLen.getNumber() == 1) { //TODO
 					SLLGraph disjunct = graph.copy();
 					Node rhsNextNode = disjunct.pointsTo(rhs).next;
 					disjunct.unmapLocal(lhs);
@@ -574,7 +636,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				} else {
 					SLLGraph disjunct = graph.copy();
 					lhsNode.next = disjunct.nullNode;
-					lhsNode.edgeLen = 1;//TODO
+					lhsNode.edgeLen = int2local(1);//TODO
 					disjuncts.add(disjunct);
 				}
 			}
@@ -610,7 +672,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					Node lhsNode = disjunct.pointsTo(lhs);
 					Node rhsNode = disjunct.pointsTo(rhs);
 					lhsNode.next = rhsNode;
-					lhsNode.edgeLen = 1;//TODO
+					lhsNode.edgeLen = int2local(1);//TODO
 					disjuncts.add(disjunct);
 				}
 			}
@@ -696,6 +758,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		
 		@Override
 		public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input1, DisjunctiveState<SLLGraph> input2) {
+			input1 = input2;
 			return input2;
 		
 		}

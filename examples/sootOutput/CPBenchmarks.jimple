@@ -1,0 +1,761 @@
+public class CPBenchmarks extends java.lang.Object
+{
+/*CPBenchmarks.java*/
+
+/*[message]*/
+    private final void error(java.lang.String)
+    {
+        CPBenchmarks this;
+        java.lang.String message;
+
+        this := @this: CPBenchmarks;
+/*Source Line Pos Tag: sline: 13 eline: 14 spos: 2 epos: 2 file: CPBenchmarks.java*/
+        message := @parameter0: java.lang.String;
+/*Source Line Pos Tag: sline: 13 eline: 13 spos: 21 epos: 34 file: CPBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 13 eline: 13 spos: 21 epos: 34 file: CPBenchmarks.java*/
+    }
+
+/*[]*/
+    public void example1()
+    {
+        CPBenchmarks this;
+        int a, temp$0, temp$1, b, c, temp$2, d, temp$3;
+
+        this := @this: CPBenchmarks;
+/*Source Line Pos Tag: sline: 16 eline: 25 spos: 2 epos: 2 file: CPBenchmarks.java*/
+/*V[1] = V[0] // this := @this: CPBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: CPBenchmarks*/
+/*V[0] : true*/
+        a = 5;
+/*Source Line Pos Tag: sline: 17 eline: 17 spos: 3 epos: 12 file: CPBenchmarks.java*/
+/*V[2] = AssignConstantToVarTransformer(V[1]) // a = 5*/
+/*V[2] : a=5*/
+        temp$0 = a;
+/*Source Line Pos Tag: sline: 18 eline: 18 spos: 3 epos: 12 file: CPBenchmarks.java*/
+/*V[3] = AssignVarToVarTransformer(V[2]) // temp$0 = a*/
+/*V[3] : and(a=5, temp$0=5)*/
+        temp$1 = temp$0 + 1;
+/*Source Line Pos Tag: sline: 18 eline: 18 spos: 3 epos: 12 file: CPBenchmarks.java*/
+/*V[4] = AssignExprToVarTransformer(V[3]) // temp$1 = temp$0 + 1*/
+/*V[4] : and(a=5, temp$0=5, temp$1=6)*/
+        a = temp$1;
+/*Source Line Pos Tag: sline: 18 eline: 18 spos: 3 epos: 3 file: CPBenchmarks.java*/
+/*V[5] = AssignVarToVarTransformer(V[4]) // a = temp$1*/
+/*V[5] : and(a=6, temp$0=5, temp$1=6)*/
+        b = 7;
+/*Source Line Pos Tag: sline: 19 eline: 19 spos: 3 epos: 12 file: CPBenchmarks.java*/
+/*V[6] = AssignConstantToVarTransformer(V[5]) // b = 7*/
+/*V[6] : and(a=6, b=7, temp$0=5, temp$1=6)*/
+        temp$2 = a;
+/*Source Line Pos Tag: sline: 20 eline: 20 spos: 3 epos: 16 file: CPBenchmarks.java*/
+/*V[7] = AssignVarToVarTransformer(V[6]) // temp$2 = a*/
+/*V[7] : and(a=6, b=7, temp$2=6, temp$0=5, temp$1=6)*/
+        c = temp$2 + b;
+/*Source Line Pos Tag: sline: 20 eline: 20 spos: 3 epos: 16 file: CPBenchmarks.java*/
+/*V[8] = AssignExprToVarTransformer(V[7]) // c = temp$2 + b*/
+/*V[8] : and(c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6)*/
+        temp$3 = a;
+/*Source Line Pos Tag: sline: 21 eline: 21 spos: 3 epos: 16 file: CPBenchmarks.java*/
+/*V[9] = AssignVarToVarTransformer(V[8]) // temp$3 = a*/
+/*V[9] : and(c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+        d = temp$3 + b;
+/*Source Line Pos Tag: sline: 21 eline: 21 spos: 3 epos: 16 file: CPBenchmarks.java*/
+/*V[10] = AssignExprToVarTransformer(V[9]) // d = temp$3 + b*/
+/*V[10] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+        if b != 7 goto label4;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 7 epos: 12 file: CPBenchmarks.java*/
+/*V[12] = AssumeExprTransformer(V[10]) // assume !(b != 7)*/
+/*V[12] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+/*V[11] = AssumeExprTransformer(V[10]) // assume b != 7*/
+/*V[11] : false*/
+
+        goto label1;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 7 epos: 12 file: CPBenchmarks.java*/
+/*V[13] = V[12] // goto [?= (branch)]*/
+/*V[13] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+
+     label1:
+        if d != 13 goto label4;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 17 epos: 23 file: CPBenchmarks.java*/
+/*V[14] = AssumeExprTransformer(V[13]) // assume d != 13*/
+/*V[14] : false*/
+/*V[15] = AssumeExprTransformer(V[13]) // assume !(d != 13)*/
+/*V[15] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+
+        goto label2;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 17 epos: 23 file: CPBenchmarks.java*/
+/*V[16] = V[15] // goto [?= (branch)]*/
+/*V[16] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+
+     label2:
+        if c != 13 goto label4;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 28 epos: 34 file: CPBenchmarks.java*/
+/*V[18] = AssumeExprTransformer(V[16]) // assume !(c != 13)*/
+/*V[18] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+/*V[17] = AssumeExprTransformer(V[16]) // assume c != 13*/
+/*V[17] : false*/
+
+        goto label3;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 28 epos: 34 file: CPBenchmarks.java*/
+/*V[19] = V[18] // goto [?= (branch)]*/
+/*V[19] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+
+     label3:
+        if a != 6 goto label4;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 39 epos: 44 file: CPBenchmarks.java*/
+/*V[21] = AssumeExprTransformer(V[19]) // assume !(a != 6)*/
+/*V[21] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+/*V[20] = AssumeExprTransformer(V[19]) // assume a != 6*/
+/*V[20] : false*/
+
+        goto label5;
+/*Source Line Pos Tag: sline: 23 eline: 23 spos: 39 epos: 44 file: CPBenchmarks.java*/
+/*V[22] = V[21] // goto [?= return]*/
+/*V[22] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+
+     label4:
+        virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b == 7 && d == 13 && c == 13 && a == 6!");
+/*Source Line Pos Tag: sline: 24 eline: 24 spos: 4 epos: 67 file: CPBenchmarks.java*/
+/*V[24] = MultiJoin_CPDomain(V[11], V[14], V[17], V[20]) // virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b == 7 && d == 13 && c == 13 && a == 6!")*/
+/*V[24] : false*/
+/*V[23] = V[24] // virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b == 7 && d == 13 && c == 13 && a == 6!")*/
+/*V[23] : false*/
+
+     label5:
+        return;
+/*Source Line Pos Tag: sline: 24 eline: 24 spos: 4 epos: 67 file: CPBenchmarks.java*/
+/*V[25] = V[26] // return*/
+/*V[25] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+/*V[26] = Join_CPDomain(V[22], V[23]) // return*/
+/*V[26] : and(d=13, c=13, a=6, b=7, temp$2=6, temp$0=5, temp$1=6, temp$3=6)*/
+    }
+
+/*[]*/
+    public void example2()
+    {
+        CPBenchmarks this;
+        int x, y, z, d, temp$0, temp$1, temp$2, temp$3, temp$4, temp$5, temp$6;
+
+        this := @this: CPBenchmarks;
+/*Source Line Pos Tag: sline: 27 eline: 46 spos: 2 epos: 2 file: CPBenchmarks.java*/
+/*V[1] = V[0] // this := @this: CPBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: CPBenchmarks*/
+/*V[0] : true*/
+        x = 100;
+/*Source Line Pos Tag: sline: 28 eline: 28 spos: 3 epos: 14 file: CPBenchmarks.java*/
+/*V[2] = AssignConstantToVarTransformer(V[1]) // x = 100*/
+/*V[2] : x=100*/
+        d = 1;
+/*Source Line Pos Tag: sline: 31 eline: 31 spos: 3 epos: 12 file: CPBenchmarks.java*/
+/*V[3] = AssignConstantToVarTransformer(V[2]) // d = 1*/
+/*V[3] : and(d=1, x=100)*/
+
+     label1:
+        if x > 0 goto label2;
+/*Source Line Pos Tag: sline: 32 eline: 32 spos: 10 epos: 14 file: CPBenchmarks.java*/
+/*V[5] = AssumeExprTransformer(V[6]) // assume !(x > 0)*/
+/*V[5] : d=1*/
+/*V[4] = AssumeExprTransformer(V[6]) // assume x > 0*/
+/*V[4] : d=1*/
+/*V[6] = JoinLoop_CPDomain(V[3], V[27]) // if x > 0 goto (branch)*/
+/*V[6] : d=1*/
+
+        goto label6;
+/*Source Line Pos Tag: sline: 32 eline: 32 spos: 10 epos: 14 file: CPBenchmarks.java*/
+/*V[7] = V[5] // goto [?= (branch)]*/
+/*V[7] : d=1*/
+
+     label2:
+        if x > 50 goto label3;
+/*Source Line Pos Tag: sline: 33 eline: 33 spos: 8 epos: 13 file: CPBenchmarks.java*/
+/*V[9] = AssumeExprTransformer(V[4]) // assume !(x > 50)*/
+/*V[9] : d=1*/
+/*V[8] = AssumeExprTransformer(V[4]) // assume x > 50*/
+/*V[8] : d=1*/
+
+        goto label4;
+/*Source Line Pos Tag: sline: 33 eline: 33 spos: 8 epos: 13 file: CPBenchmarks.java*/
+/*V[10] = V[9] // goto [?= temp$3 = 50]*/
+/*V[10] : d=1*/
+
+     label3:
+        temp$0 = 51;
+/*Source Line Pos Tag: sline: 34 eline: 34 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[11] = AssignConstantToVarTransformer(V[8]) // temp$0 = 51*/
+/*V[11] : and(temp$0=51, d=1)*/
+        y = temp$0;
+/*Source Line Pos Tag: sline: 34 eline: 34 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[12] = AssignVarToVarTransformer(V[11]) // y = temp$0*/
+/*V[12] : and(y=51, temp$0=51, d=1)*/
+        temp$1 = 52;
+/*Source Line Pos Tag: sline: 35 eline: 35 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[13] = AssignConstantToVarTransformer(V[12]) // temp$1 = 52*/
+/*V[13] : and(y=51, temp$0=51, temp$1=52, d=1)*/
+        z = temp$1;
+/*Source Line Pos Tag: sline: 35 eline: 35 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[14] = AssignVarToVarTransformer(V[13]) // z = temp$1*/
+/*V[14] : and(y=51, z=52, temp$0=51, temp$1=52, d=1)*/
+        temp$2 = z - y;
+/*Source Line Pos Tag: sline: 36 eline: 36 spos: 5 epos: 14 file: CPBenchmarks.java*/
+/*V[15] = AssignExprToVarTransformer(V[14]) // temp$2 = z - y*/
+/*V[15] : and(y=51, z=52, temp$0=51, temp$1=52, d=1, temp$2=1)*/
+        d = temp$2;
+/*Source Line Pos Tag: sline: 36 eline: 36 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[16] = AssignVarToVarTransformer(V[15]) // d = temp$2*/
+/*V[16] : and(y=51, z=52, temp$0=51, temp$1=52, d=1, temp$2=1)*/
+        goto label5;
+/*Source Line Pos Tag: sline: 33 eline: 41 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[17] = V[16] // goto [?= temp$6 = x + -1]*/
+/*V[17] : and(y=51, z=52, temp$0=51, temp$1=52, d=1, temp$2=1)*/
+
+     label4:
+        temp$3 = 50;
+/*Source Line Pos Tag: sline: 38 eline: 38 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[18] = AssignConstantToVarTransformer(V[10]) // temp$3 = 50*/
+/*V[18] : and(d=1, temp$3=50)*/
+        y = temp$3;
+/*Source Line Pos Tag: sline: 38 eline: 38 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[19] = AssignVarToVarTransformer(V[18]) // y = temp$3*/
+/*V[19] : and(y=50, d=1, temp$3=50)*/
+        temp$4 = 51;
+/*Source Line Pos Tag: sline: 39 eline: 39 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[20] = AssignConstantToVarTransformer(V[19]) // temp$4 = 51*/
+/*V[20] : and(y=50, d=1, temp$3=50, temp$4=51)*/
+        z = temp$4;
+/*Source Line Pos Tag: sline: 39 eline: 39 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[21] = AssignVarToVarTransformer(V[20]) // z = temp$4*/
+/*V[21] : and(y=50, z=51, d=1, temp$3=50, temp$4=51)*/
+        temp$5 = z - y;
+/*Source Line Pos Tag: sline: 40 eline: 40 spos: 5 epos: 14 file: CPBenchmarks.java*/
+/*V[22] = AssignExprToVarTransformer(V[21]) // temp$5 = z - y*/
+/*V[22] : and(y=50, z=51, d=1, temp$5=1, temp$3=50, temp$4=51)*/
+        d = temp$5;
+/*Source Line Pos Tag: sline: 40 eline: 40 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[23] = AssignVarToVarTransformer(V[22]) // d = temp$5*/
+/*V[23] : and(y=50, z=51, temp$5=1, d=1, temp$3=50, temp$4=51)*/
+
+     label5:
+        temp$6 = x + -1;
+/*Source Line Pos Tag: sline: 42 eline: 42 spos: 4 epos: 7 file: CPBenchmarks.java*/
+/*V[25] = Join_CPDomain(V[17], V[23]) // temp$6 = x + -1*/
+/*V[25] : d=1*/
+/*V[24] = AssignExprToVarTransformer(V[25]) // temp$6 = x + -1*/
+/*V[24] : d=1*/
+        x = temp$6;
+/*Source Line Pos Tag: sline: 42 eline: 42 spos: 6 epos: 6 file: CPBenchmarks.java*/
+/*V[26] = AssignVarToVarTransformer(V[24]) // x = temp$6*/
+/*V[26] : d=1*/
+        goto label1;
+/*Source Line Pos Tag: sline: 32 eline: 43 spos: 3 epos: 3 file: CPBenchmarks.java*/
+/*V[27] = V[26] // goto [?= (branch)]*/
+/*V[27] : d=1*/
+
+     label6:
+        if d != 1 goto label7;
+/*Source Line Pos Tag: sline: 44 eline: 44 spos: 7 epos: 12 file: CPBenchmarks.java*/
+/*V[28] = AssumeExprTransformer(V[7]) // assume d != 1*/
+/*V[28] : false*/
+/*V[29] = AssumeExprTransformer(V[7]) // assume !(d != 1)*/
+/*V[29] : d=1*/
+
+        goto label8;
+/*Source Line Pos Tag: sline: 44 eline: 44 spos: 7 epos: 12 file: CPBenchmarks.java*/
+/*V[30] = V[29] // goto [?= return]*/
+/*V[30] : d=1*/
+
+     label7:
+        virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove d==1!");
+/*Source Line Pos Tag: sline: 45 eline: 45 spos: 4 epos: 33 file: CPBenchmarks.java*/
+/*V[31] = V[28] // virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove d==1!")*/
+/*V[31] : false*/
+
+     label8:
+        return;
+/*Source Line Pos Tag: sline: 45 eline: 45 spos: 4 epos: 33 file: CPBenchmarks.java*/
+/*V[32] = V[33] // return*/
+/*V[32] : d=1*/
+/*V[33] = Join_CPDomain(V[30], V[31]) // return*/
+/*V[33] : d=1*/
+    }
+
+/*[]*/
+    public void infiniteLoop()
+    {
+        CPBenchmarks this;
+        int x;
+
+        this := @this: CPBenchmarks;
+/*Source Line Pos Tag: sline: 48 eline: 66 spos: 2 epos: 2 file: CPBenchmarks.java*/
+/*V[1] = V[0] // this := @this: CPBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: CPBenchmarks*/
+/*V[0] : true*/
+        x = 100;
+/*Source Line Pos Tag: sline: 50 eline: 50 spos: 3 epos: 14 file: CPBenchmarks.java*/
+/*V[2] = AssignConstantToVarTransformer(V[1]) // x = 100*/
+/*V[2] : x=100*/
+
+     label1:
+        if x > 0 goto label2;
+/*Source Line Pos Tag: sline: 54 eline: 54 spos: 10 epos: 14 file: CPBenchmarks.java*/
+/*V[4] = AssumeExprTransformer(V[5]) // assume !(x > 0)*/
+/*V[4] : false*/
+/*V[5] = JoinLoop_CPDomain(V[2], V[11]) // if x > 0 goto (branch)*/
+/*V[5] : x=100*/
+/*V[3] = AssumeExprTransformer(V[5]) // assume x > 0*/
+/*V[3] : x=100*/
+
+        goto label5;
+/*Source Line Pos Tag: sline: 54 eline: 54 spos: 10 epos: 14 file: CPBenchmarks.java*/
+/*V[6] = V[4] // goto [?= virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove that loop does not terminate!")]*/
+/*V[6] : false*/
+
+     label2:
+        if x > 50 goto label3;
+/*Source Line Pos Tag: sline: 55 eline: 55 spos: 8 epos: 13 file: CPBenchmarks.java*/
+/*V[7] = AssumeExprTransformer(V[3]) // assume x > 50*/
+/*V[7] : x=100*/
+/*V[8] = AssumeExprTransformer(V[3]) // assume !(x > 50)*/
+/*V[8] : false*/
+
+        goto label4;
+/*Source Line Pos Tag: sline: 55 eline: 55 spos: 8 epos: 13 file: CPBenchmarks.java*/
+/*V[9] = V[8] // goto [?= (branch)]*/
+/*V[9] : false*/
+
+     label3:
+        goto label4;
+/*Source Line Pos Tag: sline: 55 eline: 63 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[10] = V[7] // goto [?= (branch)]*/
+/*V[10] : x=100*/
+
+     label4:
+        goto label1;
+/*Source Line Pos Tag: sline: 54 eline: 64 spos: 3 epos: 3 file: CPBenchmarks.java*/
+/*V[11] = V[12] // goto [?= (branch)]*/
+/*V[11] : x=100*/
+/*V[12] = Join_CPDomain(V[9], V[10]) // goto [?= (branch)]*/
+/*V[12] : x=100*/
+
+     label5:
+        virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove that loop does not terminate!");
+/*Source Line Pos Tag: sline: 65 eline: 65 spos: 3 epos: 56 file: CPBenchmarks.java*/
+/*V[13] = V[6] // virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove that loop does not terminate!")*/
+/*V[13] : false*/
+        return;
+/*Source Line Pos Tag: sline: 65 eline: 65 spos: 3 epos: 56 file: CPBenchmarks.java*/
+/*V[14] = V[13] // return*/
+/*V[14] : false*/
+    }
+
+/*[x]*/
+    public void example3(int)
+    {
+        CPBenchmarks this;
+        int x, y, z, d, temp$0, temp$1, temp$2, temp$3, temp$4, temp$5;
+
+        this := @this: CPBenchmarks;
+/*Source Line Pos Tag: sline: 68 eline: 85 spos: 2 epos: 2 file: CPBenchmarks.java*/
+/*V[1] = V[0] // this := @this: CPBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: CPBenchmarks*/
+/*V[0] : true*/
+        x := @parameter0: int;
+/*Source Line Pos Tag: sline: 68 eline: 68 spos: 23 epos: 27 file: CPBenchmarks.java*/
+/*V[2] = V[1] // x := @parameter0: int*/
+/*V[2] : true*/
+        if x > 50 goto label1;
+/*Source Line Pos Tag: sline: 73 eline: 73 spos: 7 epos: 12 file: CPBenchmarks.java*/
+/*V[3] = AssumeExprTransformer(V[2]) // assume x > 50*/
+/*V[3] : true*/
+/*V[4] = AssumeExprTransformer(V[2]) // assume !(x > 50)*/
+/*V[4] : true*/
+
+        goto label2;
+/*Source Line Pos Tag: sline: 73 eline: 73 spos: 7 epos: 12 file: CPBenchmarks.java*/
+/*V[5] = V[4] // goto [?= temp$3 = 50]*/
+/*V[5] : true*/
+
+     label1:
+        temp$0 = 51;
+/*Source Line Pos Tag: sline: 74 eline: 74 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[6] = AssignConstantToVarTransformer(V[3]) // temp$0 = 51*/
+/*V[6] : temp$0=51*/
+        y = temp$0;
+/*Source Line Pos Tag: sline: 74 eline: 74 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[7] = AssignVarToVarTransformer(V[6]) // y = temp$0*/
+/*V[7] : and(y=51, temp$0=51)*/
+        temp$1 = 53;
+/*Source Line Pos Tag: sline: 75 eline: 75 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[8] = AssignConstantToVarTransformer(V[7]) // temp$1 = 53*/
+/*V[8] : and(y=51, temp$1=53, temp$0=51)*/
+        z = temp$1;
+/*Source Line Pos Tag: sline: 75 eline: 75 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[9] = AssignVarToVarTransformer(V[8]) // z = temp$1*/
+/*V[9] : and(z=53, y=51, temp$1=53, temp$0=51)*/
+        temp$2 = z - y;
+/*Source Line Pos Tag: sline: 76 eline: 76 spos: 4 epos: 13 file: CPBenchmarks.java*/
+/*V[10] = AssignExprToVarTransformer(V[9]) // temp$2 = z - y*/
+/*V[10] : and(z=53, y=51, temp$1=53, temp$2=2, temp$0=51)*/
+        d = temp$2;
+/*Source Line Pos Tag: sline: 76 eline: 76 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[11] = AssignVarToVarTransformer(V[10]) // d = temp$2*/
+/*V[11] : and(z=53, y=51, temp$1=53, temp$2=2, temp$0=51, d=2)*/
+        goto label3;
+/*Source Line Pos Tag: sline: 73 eline: 81 spos: 3 epos: 3 file: CPBenchmarks.java*/
+/*V[12] = V[11] // goto [?= (branch)]*/
+/*V[12] : and(z=53, y=51, temp$1=53, temp$2=2, temp$0=51, d=2)*/
+
+     label2:
+        temp$3 = 50;
+/*Source Line Pos Tag: sline: 78 eline: 78 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[13] = AssignConstantToVarTransformer(V[5]) // temp$3 = 50*/
+/*V[13] : temp$3=50*/
+        y = temp$3;
+/*Source Line Pos Tag: sline: 78 eline: 78 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[14] = AssignVarToVarTransformer(V[13]) // y = temp$3*/
+/*V[14] : and(y=50, temp$3=50)*/
+        temp$4 = 51;
+/*Source Line Pos Tag: sline: 79 eline: 79 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[15] = AssignConstantToVarTransformer(V[14]) // temp$4 = 51*/
+/*V[15] : and(y=50, temp$3=50, temp$4=51)*/
+        z = temp$4;
+/*Source Line Pos Tag: sline: 79 eline: 79 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[16] = AssignVarToVarTransformer(V[15]) // z = temp$4*/
+/*V[16] : and(y=50, z=51, temp$3=50, temp$4=51)*/
+        temp$5 = z - y;
+/*Source Line Pos Tag: sline: 80 eline: 80 spos: 4 epos: 13 file: CPBenchmarks.java*/
+/*V[17] = AssignExprToVarTransformer(V[16]) // temp$5 = z - y*/
+/*V[17] : and(y=50, z=51, temp$5=1, temp$3=50, temp$4=51)*/
+        d = temp$5;
+/*Source Line Pos Tag: sline: 80 eline: 80 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[18] = AssignVarToVarTransformer(V[17]) // d = temp$5*/
+/*V[18] : and(y=50, z=51, temp$5=1, d=1, temp$3=50, temp$4=51)*/
+
+     label3:
+        if d < 0 goto label4;
+/*Source Line Pos Tag: sline: 82 eline: 82 spos: 7 epos: 11 file: CPBenchmarks.java*/
+/*V[19] = AssumeExprTransformer(V[21]) // assume d < 0*/
+/*V[19] : true*/
+/*V[21] = Join_CPDomain(V[12], V[18]) // if d < 0 goto virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove d>=0!")*/
+/*V[21] : true*/
+/*V[20] = AssumeExprTransformer(V[21]) // assume !(d < 0)*/
+/*V[20] : true*/
+
+        goto label5;
+/*Source Line Pos Tag: sline: 82 eline: 82 spos: 7 epos: 11 file: CPBenchmarks.java*/
+/*V[22] = V[20] // goto [?= return]*/
+/*V[22] : true*/
+
+     label4:
+        virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove d>=0!");
+/*Source Line Pos Tag: sline: 83 eline: 83 spos: 4 epos: 33 file: CPBenchmarks.java*/
+/*V[23] = V[19] // virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove d>=0!")*/
+/*V[23] : true*/
+/*Possible error!*/
+
+     label5:
+        return;
+/*Source Line Pos Tag: sline: 84 eline: 84 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[24] = V[25] // return*/
+/*V[24] : true*/
+/*V[25] = Join_CPDomain(V[22], V[23]) // return*/
+/*V[25] : true*/
+    }
+
+/*[b]*/
+    public void example4(int)
+    {
+        CPBenchmarks this;
+        int b, temp$0, temp$1, temp$2, temp$3, temp$4;
+
+        this := @this: CPBenchmarks;
+/*Source Line Pos Tag: sline: 87 eline: 99 spos: 2 epos: 2 file: CPBenchmarks.java*/
+/*V[1] = V[0] // this := @this: CPBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: CPBenchmarks*/
+/*V[0] : true*/
+        b := @parameter0: int;
+/*Source Line Pos Tag: sline: 87 eline: 87 spos: 23 epos: 27 file: CPBenchmarks.java*/
+/*V[2] = V[1] // b := @parameter0: int*/
+/*V[2] : true*/
+        if b > 0 goto label1;
+/*Source Line Pos Tag: sline: 88 eline: 88 spos: 7 epos: 11 file: CPBenchmarks.java*/
+/*V[4] = AssumeExprTransformer(V[2]) // assume !(b > 0)*/
+/*V[4] : true*/
+/*V[3] = AssumeExprTransformer(V[2]) // assume b > 0*/
+/*V[3] : true*/
+
+        goto label2;
+/*Source Line Pos Tag: sline: 88 eline: 88 spos: 7 epos: 11 file: CPBenchmarks.java*/
+/*V[5] = V[4] // goto [?= temp$1 = -5]*/
+/*V[5] : true*/
+
+     label1:
+        temp$0 = 5;
+/*Source Line Pos Tag: sline: 89 eline: 89 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[6] = AssignConstantToVarTransformer(V[3]) // temp$0 = 5*/
+/*V[6] : temp$0=5*/
+        b = temp$0;
+/*Source Line Pos Tag: sline: 89 eline: 89 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[7] = AssignVarToVarTransformer(V[6]) // b = temp$0*/
+/*V[7] : and(temp$0=5, b=5)*/
+        goto label3;
+/*Source Line Pos Tag: sline: 88 eline: 91 spos: 3 epos: 10 file: CPBenchmarks.java*/
+/*V[8] = V[7] // goto [?= (branch)]*/
+/*V[8] : and(temp$0=5, b=5)*/
+
+     label2:
+        temp$1 = -5;
+/*Source Line Pos Tag: sline: 91 eline: 91 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[9] = AssignConstantToVarTransformer(V[5]) // temp$1 = -5*/
+/*V[9] : temp$1=-5*/
+        b = temp$1;
+/*Source Line Pos Tag: sline: 91 eline: 91 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[10] = AssignVarToVarTransformer(V[9]) // b = temp$1*/
+/*V[10] : and(b=-5, temp$1=-5)*/
+
+     label3:
+        if b > 0 goto label4;
+/*Source Line Pos Tag: sline: 93 eline: 93 spos: 7 epos: 11 file: CPBenchmarks.java*/
+/*V[12] = AssumeExprTransformer(V[13]) // assume !(b > 0)*/
+/*V[12] : true*/
+/*V[13] = Join_CPDomain(V[8], V[10]) // if b > 0 goto temp$2 = b - 5*/
+/*V[13] : true*/
+/*V[11] = AssumeExprTransformer(V[13]) // assume b > 0*/
+/*V[11] : true*/
+
+        goto label5;
+/*Source Line Pos Tag: sline: 93 eline: 93 spos: 7 epos: 11 file: CPBenchmarks.java*/
+/*V[14] = V[12] // goto [?= temp$3 = b]*/
+/*V[14] : true*/
+
+     label4:
+        temp$2 = b - 5;
+/*Source Line Pos Tag: sline: 94 eline: 94 spos: 4 epos: 13 file: CPBenchmarks.java*/
+/*V[15] = AssignExprToVarTransformer(V[11]) // temp$2 = b - 5*/
+/*V[15] : true*/
+        b = temp$2;
+/*Source Line Pos Tag: sline: 94 eline: 94 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[16] = AssignVarToVarTransformer(V[15]) // b = temp$2*/
+/*V[16] : true*/
+        goto label6;
+/*Source Line Pos Tag: sline: 93 eline: 96 spos: 3 epos: 13 file: CPBenchmarks.java*/
+/*V[17] = V[16] // goto [?= (branch)]*/
+/*V[17] : true*/
+
+     label5:
+        temp$3 = b;
+/*Source Line Pos Tag: sline: 96 eline: 96 spos: 4 epos: 13 file: CPBenchmarks.java*/
+/*V[18] = AssignVarToVarTransformer(V[14]) // temp$3 = b*/
+/*V[18] : true*/
+        temp$4 = temp$3 + 5;
+/*Source Line Pos Tag: sline: 96 eline: 96 spos: 4 epos: 13 file: CPBenchmarks.java*/
+/*V[19] = AssignExprToVarTransformer(V[18]) // temp$4 = temp$3 + 5*/
+/*V[19] : true*/
+        b = temp$4;
+/*Source Line Pos Tag: sline: 96 eline: 96 spos: 4 epos: 4 file: CPBenchmarks.java*/
+/*V[20] = AssignVarToVarTransformer(V[19]) // b = temp$4*/
+/*V[20] : true*/
+
+     label6:
+        if b != 0 goto label7;
+/*Source Line Pos Tag: sline: 97 eline: 97 spos: 7 epos: 12 file: CPBenchmarks.java*/
+/*V[23] = Join_CPDomain(V[17], V[20]) // if b != 0 goto virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b==0")*/
+/*V[23] : true*/
+/*V[21] = AssumeExprTransformer(V[23]) // assume b != 0*/
+/*V[21] : true*/
+/*V[22] = AssumeExprTransformer(V[23]) // assume !(b != 0)*/
+/*V[22] : true*/
+
+        goto label8;
+/*Source Line Pos Tag: sline: 97 eline: 97 spos: 7 epos: 12 file: CPBenchmarks.java*/
+/*V[24] = V[22] // goto [?= return]*/
+/*V[24] : true*/
+
+     label7:
+        virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b==0");
+/*Source Line Pos Tag: sline: 98 eline: 98 spos: 4 epos: 32 file: CPBenchmarks.java*/
+/*V[25] = V[21] // virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b==0")*/
+/*V[25] : true*/
+/*Possible error!*/
+
+     label8:
+        return;
+/*Source Line Pos Tag: sline: 98 eline: 98 spos: 4 epos: 32 file: CPBenchmarks.java*/
+/*V[26] = V[27] // return*/
+/*V[26] : true*/
+/*V[27] = Join_CPDomain(V[24], V[25]) // return*/
+/*V[27] : true*/
+    }
+
+/*[b, c]*/
+    public void example4Loop(int, int)
+    {
+        CPBenchmarks this;
+        int b, c, temp$0, temp$1, temp$2, temp$3, temp$4;
+
+        this := @this: CPBenchmarks;
+/*Source Line Pos Tag: sline: 101 eline: 115 spos: 2 epos: 2 file: CPBenchmarks.java*/
+/*V[0] = true // this := @this: CPBenchmarks*/
+/*V[0] : true*/
+/*V[1] = V[0] // this := @this: CPBenchmarks*/
+/*V[1] : true*/
+        b := @parameter0: int;
+/*Source Line Pos Tag: sline: 101 eline: 101 spos: 27 epos: 31 file: CPBenchmarks.java*/
+/*V[2] = V[1] // b := @parameter0: int*/
+/*V[2] : true*/
+        c := @parameter1: int;
+/*Source Line Pos Tag: sline: 101 eline: 101 spos: 34 epos: 38 file: CPBenchmarks.java*/
+/*V[3] = V[2] // c := @parameter1: int*/
+/*V[3] : true*/
+
+     label01:
+        if b < c goto label02;
+/*Source Line Pos Tag: sline: 102 eline: 102 spos: 10 epos: 14 file: CPBenchmarks.java*/
+/*V[4] = AssumeExprTransformer(V[6]) // assume b < c*/
+/*V[4] : true*/
+/*V[5] = AssumeExprTransformer(V[6]) // assume !(b < c)*/
+/*V[5] : true*/
+/*V[6] = JoinLoop_CPDomain(V[3], V[31]) // if b < c goto (branch)*/
+/*V[6] : true*/
+
+        goto label11;
+/*Source Line Pos Tag: sline: 102 eline: 102 spos: 10 epos: 14 file: CPBenchmarks.java*/
+/*V[7] = V[5] // goto [?= return]*/
+/*V[7] : true*/
+
+     label02:
+        if b > 0 goto label03;
+/*Source Line Pos Tag: sline: 103 eline: 103 spos: 8 epos: 12 file: CPBenchmarks.java*/
+/*V[8] = AssumeExprTransformer(V[4]) // assume b > 0*/
+/*V[8] : true*/
+/*V[9] = AssumeExprTransformer(V[4]) // assume !(b > 0)*/
+/*V[9] : true*/
+
+        goto label04;
+/*Source Line Pos Tag: sline: 103 eline: 103 spos: 8 epos: 12 file: CPBenchmarks.java*/
+/*V[10] = V[9] // goto [?= temp$1 = -5]*/
+/*V[10] : true*/
+
+     label03:
+        temp$0 = 5;
+/*Source Line Pos Tag: sline: 104 eline: 104 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[11] = AssignConstantToVarTransformer(V[8]) // temp$0 = 5*/
+/*V[11] : temp$0=5*/
+        b = temp$0;
+/*Source Line Pos Tag: sline: 104 eline: 104 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[12] = AssignVarToVarTransformer(V[11]) // b = temp$0*/
+/*V[12] : and(temp$0=5, b=5)*/
+        goto label05;
+/*Source Line Pos Tag: sline: 103 eline: 106 spos: 4 epos: 11 file: CPBenchmarks.java*/
+/*V[13] = V[12] // goto [?= (branch)]*/
+/*V[13] : and(temp$0=5, b=5)*/
+
+     label04:
+        temp$1 = -5;
+/*Source Line Pos Tag: sline: 106 eline: 106 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[14] = AssignConstantToVarTransformer(V[10]) // temp$1 = -5*/
+/*V[14] : temp$1=-5*/
+        b = temp$1;
+/*Source Line Pos Tag: sline: 106 eline: 106 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[15] = AssignVarToVarTransformer(V[14]) // b = temp$1*/
+/*V[15] : and(b=-5, temp$1=-5)*/
+
+     label05:
+        if b > 0 goto label06;
+/*Source Line Pos Tag: sline: 108 eline: 108 spos: 8 epos: 12 file: CPBenchmarks.java*/
+/*V[18] = Join_CPDomain(V[13], V[15]) // if b > 0 goto temp$2 = b - 5*/
+/*V[18] : true*/
+/*V[16] = AssumeExprTransformer(V[18]) // assume b > 0*/
+/*V[16] : true*/
+/*V[17] = AssumeExprTransformer(V[18]) // assume !(b > 0)*/
+/*V[17] : true*/
+
+        goto label07;
+/*Source Line Pos Tag: sline: 108 eline: 108 spos: 8 epos: 12 file: CPBenchmarks.java*/
+/*V[19] = V[17] // goto [?= temp$3 = b]*/
+/*V[19] : true*/
+
+     label06:
+        temp$2 = b - 5;
+/*Source Line Pos Tag: sline: 109 eline: 109 spos: 5 epos: 14 file: CPBenchmarks.java*/
+/*V[20] = AssignExprToVarTransformer(V[16]) // temp$2 = b - 5*/
+/*V[20] : true*/
+        b = temp$2;
+/*Source Line Pos Tag: sline: 109 eline: 109 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[21] = AssignVarToVarTransformer(V[20]) // b = temp$2*/
+/*V[21] : true*/
+        goto label08;
+/*Source Line Pos Tag: sline: 108 eline: 111 spos: 4 epos: 14 file: CPBenchmarks.java*/
+/*V[22] = V[21] // goto [?= (branch)]*/
+/*V[22] : true*/
+
+     label07:
+        temp$3 = b;
+/*Source Line Pos Tag: sline: 111 eline: 111 spos: 5 epos: 14 file: CPBenchmarks.java*/
+/*V[23] = AssignVarToVarTransformer(V[19]) // temp$3 = b*/
+/*V[23] : true*/
+        temp$4 = temp$3 + 5;
+/*Source Line Pos Tag: sline: 111 eline: 111 spos: 5 epos: 14 file: CPBenchmarks.java*/
+/*V[24] = AssignExprToVarTransformer(V[23]) // temp$4 = temp$3 + 5*/
+/*V[24] : true*/
+        b = temp$4;
+/*Source Line Pos Tag: sline: 111 eline: 111 spos: 5 epos: 5 file: CPBenchmarks.java*/
+/*V[25] = AssignVarToVarTransformer(V[24]) // b = temp$4*/
+/*V[25] : true*/
+
+     label08:
+        if b != 0 goto label09;
+/*Source Line Pos Tag: sline: 112 eline: 112 spos: 8 epos: 13 file: CPBenchmarks.java*/
+/*V[28] = Join_CPDomain(V[22], V[25]) // if b != 0 goto virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b==0")*/
+/*V[28] : true*/
+/*V[27] = AssumeExprTransformer(V[28]) // assume !(b != 0)*/
+/*V[27] : true*/
+/*V[26] = AssumeExprTransformer(V[28]) // assume b != 0*/
+/*V[26] : true*/
+
+        goto label10;
+/*Source Line Pos Tag: sline: 112 eline: 112 spos: 8 epos: 13 file: CPBenchmarks.java*/
+/*V[29] = V[27] // goto [?= (branch)]*/
+/*V[29] : true*/
+
+     label09:
+        virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b==0");
+/*Source Line Pos Tag: sline: 113 eline: 113 spos: 5 epos: 33 file: CPBenchmarks.java*/
+/*V[30] = V[26] // virtualinvoke this.<CPBenchmarks: void error(java.lang.String)>("Unable to prove b==0")*/
+/*V[30] : true*/
+/*Possible error!*/
+
+     label10:
+        goto label01;
+/*Source Line Pos Tag: sline: 102 eline: 114 spos: 3 epos: 3 file: CPBenchmarks.java*/
+/*V[32] = Join_CPDomain(V[29], V[30]) // goto [?= (branch)]*/
+/*V[32] : true*/
+/*V[31] = V[32] // goto [?= (branch)]*/
+/*V[31] : true*/
+
+     label11:
+        return;
+/*Source Line Pos Tag: sline: 102 eline: 114 spos: 3 epos: 3 file: CPBenchmarks.java*/
+/*V[33] = V[7] // return*/
+/*V[33] : true*/
+    }
+
+/*[]*/
+/*11*/
+    public void <init>()
+    {
+        CPBenchmarks this;
+
+        this := @this: CPBenchmarks;
+/*12*/
+        specialinvoke this.<java.lang.Object: void <init>()>();
+/*12*/
+        return;
+/*12*/
+    }
+}

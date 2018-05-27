@@ -1,0 +1,93 @@
+public class ZoneBenchmarks extends java.lang.Object
+{
+/*ZoneBenchmarks.java*/
+
+/*[message]*/
+    private final void error(java.lang.String)
+    {
+        ZoneBenchmarks this;
+        java.lang.String message;
+
+        this := @this: ZoneBenchmarks;
+/*Source Line Pos Tag: sline: 7 eline: 8 spos: 2 epos: 2 file: ZoneBenchmarks.java*/
+        message := @parameter0: java.lang.String;
+/*Source Line Pos Tag: sline: 7 eline: 7 spos: 21 epos: 34 file: ZoneBenchmarks.java*/
+        return;
+/*Source Line Pos Tag: sline: 7 eline: 7 spos: 21 epos: 34 file: ZoneBenchmarks.java*/
+    }
+
+/*[]*/
+    public void artihmeticExample()
+    {
+        ZoneBenchmarks this;
+        int x, y, z, temp$0;
+
+        this := @this: ZoneBenchmarks;
+/*Source Line Pos Tag: sline: 10 eline: 19 spos: 2 epos: 2 file: ZoneBenchmarks.java*/
+/*V[1] = Reduce_ZoneDomain(ForgetVarTransformer(V[0])) // this := @this: ZoneBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: ZoneBenchmarks*/
+/*V[0] : true*/
+        x = 7;
+/*Source Line Pos Tag: sline: 11 eline: 11 spos: 3 epos: 12 file: ZoneBenchmarks.java*/
+/*V[2] = Reduce_ZoneDomain(TransformerAssignConstantToVar(V[1])) // x = 7*/
+/*V[2] : and(V0-x<=-7, x-V0<=7)*/
+        y = 10;
+/*Source Line Pos Tag: sline: 12 eline: 12 spos: 3 epos: 13 file: ZoneBenchmarks.java*/
+/*V[3] = Reduce_ZoneDomain(TransformerAssignConstantToVar(V[2])) // y = 10*/
+/*V[3] : and(V0-x<=-7, V0-y<=-10, y-x<=3, x-y<=-3, x-V0<=7, y-V0<=10)*/
+        temp$0 = y;
+/*Source Line Pos Tag: sline: 13 eline: 13 spos: 3 epos: 16 file: ZoneBenchmarks.java*/
+/*V[4] = Reduce_ZoneDomain(TransformerAssignLocalToLocal(V[3])) // temp$0 = y*/
+/*V[4] : and(V0-x<=-7, V0-temp$0<=-10, V0-y<=-10, y-x<=3, temp$0-V0<=10, x-y<=-3, temp$0-y<=0, x-temp$0<=-3, x-V0<=7, temp$0-x<=3, y-temp$0<=0, y-V0<=10)*/
+        z = temp$0 + x;
+/*Source Line Pos Tag: sline: 13 eline: 13 spos: 3 epos: 16 file: ZoneBenchmarks.java*/
+/*V[5] = Reduce_ZoneDomain(TransformerAssignAddLocalLocalToLocal(V[4])) // z = temp$0 + x*/
+/*V[5] : and(V0-x<=-7, V0-y<=-10, x-z<=-10, z-temp$0<=7, z-V0<=17, temp$0-z<=-7, x-y<=-3, temp$0-y<=0, y-z<=-7, x-temp$0<=-3, temp$0-x<=3, y-temp$0<=0, z-y<=7, V0-temp$0<=-10, z-x<=10, y-x<=3, temp$0-V0<=10, V0-z<=-17, x-V0<=7, y-V0<=10)*/
+        if z < 18 goto label1;
+/*Source Line Pos Tag: sline: 14 eline: 14 spos: 7 epos: 12 file: ZoneBenchmarks.java*/
+/*V[6] = Reduce_ZoneDomain(Zones[z<18](V[5])) // assume z < 18*/
+/*V[6] : and(V0-x<=-7, V0-y<=-10, x-z<=-10, z-temp$0<=7, z-V0<=17, temp$0-z<=-7, x-y<=-3, temp$0-y<=0, y-z<=-7, x-temp$0<=-3, temp$0-x<=3, y-temp$0<=0, z-y<=7, V0-temp$0<=-10, z-x<=10, y-x<=3, temp$0-V0<=10, V0-z<=-17, x-V0<=7, y-V0<=10)*/
+/*V[7] = Reduce_ZoneDomain(Zones[z>=18](V[5])) // assume !(z < 18)*/
+/*V[7] : false*/
+
+        goto label2;
+/*Source Line Pos Tag: sline: 14 eline: 14 spos: 7 epos: 12 file: ZoneBenchmarks.java*/
+/*V[8] = V[7] // goto [?= virtualinvoke this.<ZoneBenchmarks: void error(java.lang.String)>("Cannot prove z <= 17!")]*/
+/*V[8] : false*/
+
+     label1:
+        goto label3;
+/*Source Line Pos Tag: sline: 14 eline: 17 spos: 3 epos: 3 file: ZoneBenchmarks.java*/
+/*V[9] = V[6] // goto [?= return]*/
+/*V[9] : and(V0-x<=-7, V0-y<=-10, x-z<=-10, z-temp$0<=7, z-V0<=17, temp$0-z<=-7, x-y<=-3, temp$0-y<=0, y-z<=-7, x-temp$0<=-3, temp$0-x<=3, y-temp$0<=0, z-y<=7, V0-temp$0<=-10, z-x<=10, y-x<=3, temp$0-V0<=10, V0-z<=-17, x-V0<=7, y-V0<=10)*/
+
+     label2:
+        virtualinvoke this.<ZoneBenchmarks: void error(java.lang.String)>("Cannot prove z <= 17!");
+/*Source Line Pos Tag: sline: 16 eline: 16 spos: 4 epos: 33 file: ZoneBenchmarks.java*/
+/*V[10] = V[8] // virtualinvoke this.<ZoneBenchmarks: void error(java.lang.String)>("Cannot prove z <= 17!")*/
+/*V[10] : false*/
+
+     label3:
+        return;
+/*Source Line Pos Tag: sline: 16 eline: 16 spos: 4 epos: 33 file: ZoneBenchmarks.java*/
+/*V[12] = Join_ZoneDomain(V[9], V[10]) // return*/
+/*V[12] : and(V0-x<=-7, V0-y<=-10, x-z<=-10, z-temp$0<=7, z-V0<=17, temp$0-z<=-7, x-y<=-3, temp$0-y<=0, y-z<=-7, x-temp$0<=-3, temp$0-x<=3, y-temp$0<=0, z-y<=7, V0-temp$0<=-10, z-x<=10, y-x<=3, temp$0-V0<=10, V0-z<=-17, x-V0<=7, y-V0<=10)*/
+/*V[11] = V[12] // return*/
+/*V[11] : and(V0-x<=-7, V0-y<=-10, x-z<=-10, z-temp$0<=7, z-V0<=17, temp$0-z<=-7, x-y<=-3, temp$0-y<=0, y-z<=-7, x-temp$0<=-3, temp$0-x<=3, y-temp$0<=0, z-y<=7, V0-temp$0<=-10, z-x<=10, y-x<=3, temp$0-V0<=10, V0-z<=-17, x-V0<=7, y-V0<=10)*/
+    }
+
+/*[]*/
+/*5*/
+    public void <init>()
+    {
+        ZoneBenchmarks this;
+
+        this := @this: ZoneBenchmarks;
+/*6*/
+        specialinvoke this.<java.lang.Object: void <init>()>();
+/*6*/
+        return;
+/*6*/
+    }
+}

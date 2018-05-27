@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -12,7 +14,9 @@ import bgu.cs.absint.analyses.sll.AbsLen;
 import bgu.cs.absint.analyses.zone.ZoneState;
 import bgu.cs.absint.soot.LocalComparator;
 import bgu.cs.util.StringUtils;
+import soot.IntType;
 import soot.Local;
+import soot.jimple.internal.JimpleLocal;
 
 /**
  * An abstract element representing the abstraction of a bounded number of
@@ -25,7 +29,7 @@ import soot.Local;
  * @author romanm
  */
 public class SLLGraph {
-	public final Node nullNode = new Node(null, 0);
+	public final Node nullNode = new Node(null, SLLDomain.int2local(0));
 
 	protected Collection<Node> nodes = new ArrayList<Node>();
 	protected Map<Local, Node> pointsTo = new TreeMap<Local, Node>(new LocalComparator());
@@ -39,6 +43,8 @@ public class SLLGraph {
 		nodes.add(nullNode);
 	}
 
+	
+	
 	public SLLGraph dropLocals(Collection<Local> locals) {
 		SLLGraph simpler = this.copy();
 		for (Local local : locals) {
@@ -47,6 +53,7 @@ public class SLLGraph {
 		return simpler;
 	}
 
+	
 	/**
 	 * Creates an isomorphic shape graph.
 	 * 
@@ -244,7 +251,7 @@ public class SLLGraph {
 				continue;
 			assert n.next != null;
 			String nextNodeName = nodeToName.get(n.next);
-			String edgeLenStr = n.edgeLen == 1 ? ".next=" : "~["+n.edgeLen+"]~>";
+			String edgeLenStr = n.edgeLen.getNumber() == 1 ? ".next=" : "~["+n.edgeLen+"]~>";
 			substrings.add(nodeToName.get(n) + edgeLenStr + nextNodeName);
 		}
 		StringBuilder result = new StringBuilder("graph = {");
@@ -252,4 +259,102 @@ public class SLLGraph {
 		result.append("}");
 		return result.toString();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	static ArrayList<Local> vars;
+	
+
+	public static Local nextLocal(int index){
+		
+		if(vars==null)
+		{
+			vars = new ArrayList<Local>();
+		}
+		int counter = vars.size();
+		while(vars.size()<=index)
+		{
+			vars.add(new JimpleLocal("var"+counter,IntType.v()));
+			counter++;
+		}
+		return vars.get(index);
+		
+	}
+	HashMap<Integer,Node> mapper = new HashMap<Integer,Node>(); 
+	public void normalize()
+	{
+		SLLGraph res = new SLLGraph();
+		
+		Iterator<Node> iter = this.nodes.iterator();
+		int numOfNodes =this.nodes.size();
+		for(int i=0;i<numOfNodes;i++){		
+			mapper.put(i,iter.next());
+		}
+		DFS(0,numOfNodes,this);
+		
+	}
+	
+	public int revMap(Node n)
+	{
+		for(Entry<Integer, Node> a : mapper.entrySet())
+		{
+			if(a.getValue().equals(n))
+				return a.getKey();
+		}
+		return -1;
+	}
+	void DFSUtil(int v,boolean visited[],SLLGraph inormal)
+    {
+        // Mark the current node as visited and print it
+		if(v>=visited.length)
+			return;
+        visited[v] = true;
+        
+        System.out.println("Visited " + v);
+        Node n = inormal.mapper.get(v).next;
+        if(n!=null)
+        {
+	        int nIndex = revMap(n);
+	        n.edgeLen=nextLocal(nIndex);
+	        if (!visited[nIndex])
+	            DFSUtil(nIndex, visited,inormal);
+        }
+    
+    }
+ 
+    // The function to do DFS traversal. It uses recursive DFSUtil()
+    void DFS(int v,int size,SLLGraph inormal)
+    {
+        // Mark all the vertices as not visited(set as
+        // false by default in java)
+        boolean visited[] = new boolean[size];
+ 
+        // Call the recursive helper function to print DFS traversal
+        DFSUtil(v, visited,inormal);
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

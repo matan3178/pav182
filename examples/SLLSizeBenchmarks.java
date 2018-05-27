@@ -11,6 +11,8 @@ public class SLLSizeBenchmarks {
 		public Node next;
 		public int data;
 	}
+	private static void error(String message) {
+	}
 
 	///////////////////////////////////////////////////////////////////////////
 	// Analysis helper methods.
@@ -21,6 +23,7 @@ public class SLLSizeBenchmarks {
 	 * null, except 'x', which points to a list of size >=0.
 	 */
 	public static void analysisInitAcyclic(Node x) {
+		
 	}
 
 	/**
@@ -97,6 +100,7 @@ public class SLLSizeBenchmarks {
 	 * 
 	 * @return the cell holds the given value, or null if there is none.
 	 */
+	/*
 	public Node find(Node head, int key) {
 		analysisInitAcyclic(head); // Start with an acyclic list.
 		Node result = null;
@@ -110,7 +114,7 @@ public class SLLSizeBenchmarks {
 		}
 		return result;
 	}
-
+*/
 	/**
 	 * Creates two equal-sized acyclic singly-linked lists of a given size and
 	 * prints them to the console. The data field of a cell holds its position in
@@ -120,12 +124,15 @@ public class SLLSizeBenchmarks {
 	 *            The number of cells in the list.
 	 * @return An acyclic singly-linked list.
 	 */
+	
 	public Node createAndPrint(int size) {
 		Node head1 = null;
 		Node head2 = null;
 		for (int i = 0; i < size; ++i) {
 			Node n1 = new Node();
+			error("WHAT WITH THIS");
 			n1.next = head1;
+			error("WHAT WITH THIS");
 			n1.data = i;
 			head1 = n1;
 
@@ -153,6 +160,7 @@ public class SLLSizeBenchmarks {
 		return head1;
 	}
 
+/*
 	
 	public void createAndPrintSmall() {
 		Node head = new Node();
@@ -164,6 +172,6 @@ public class SLLSizeBenchmarks {
 //			System.out.println("unexpected");
 		}
 	}
-	
+	*/
 
 }

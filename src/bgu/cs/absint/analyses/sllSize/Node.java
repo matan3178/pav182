@@ -12,14 +12,14 @@ import soot.Local;
  */
 public class Node {
 	protected Node next;
-	protected int edgeLen;
+	protected Local edgeLen;
 
 	protected Set<Local> pointedBy = new HashSet<>();
 
 	public Node() {		
 	}
 
-	public Node(Node next, int outEdgeLen) {
+	public Node(Node next, Local outEdgeLen) {
 		this.next = next;
 		this.edgeLen = outEdgeLen;
 	}
