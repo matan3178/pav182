@@ -11,11 +11,13 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import bgu.cs.absint.analyses.sll.AbsLen;
+import bgu.cs.absint.analyses.zone.ZoneFactoid;
 import bgu.cs.absint.analyses.zone.ZoneState;
 import bgu.cs.absint.soot.LocalComparator;
 import bgu.cs.util.StringUtils;
 import soot.IntType;
 import soot.Local;
+import soot.jimple.IntConstant;
 import soot.jimple.internal.JimpleLocal;
 
 /**
@@ -292,7 +294,7 @@ public class SLLGraph {
 	HashMap<Integer,Node> mapper = new HashMap<Integer,Node>(); 
 	public void normalize()
 	{
-		SLLGraph res = new SLLGraph();
+//		SLLGraph res = new SLLGraph();
 		
 		Iterator<Node> iter = this.nodes.iterator();
 		int numOfNodes =this.nodes.size();
@@ -324,12 +326,26 @@ public class SLLGraph {
         if(n!=null)
         {
 	        int nIndex = revMap(n);
+	        
+	        Local oldLen = n.edgeLen;
+	        IntConstant intConst = getConstant(inormal, oldLen, ZoneFactoid.ZERO_VAR);
+	        inormal.sizes.removeVar(oldLen);
 	        n.edgeLen=nextLocal(nIndex);
+	        inormal.sizes.addFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, intConst);	        
+	        
 	        if (!visited[nIndex])
 	            DFSUtil(nIndex, visited,inormal);
         }
     
     }
+	private IntConstant getConstant(SLLGraph graph, Local a, Local b){
+		for(ZoneFactoid zf: graph.sizes.getFactoids()){
+			if(zf.equalVars(a,  b))
+				return zf.bound;
+		}
+		return null;
+	}
+
  
     // The function to do DFS traversal. It uses recursive DFSUtil()
     void DFS(int v,int size,SLLGraph inormal)
@@ -338,8 +354,12 @@ public class SLLGraph {
         // false by default in java)
         boolean visited[] = new boolean[size];
  
+        for(boolean b:visited){
+        	if(!b)
+        		DFSUtil(v, visited,inormal);
+        }
         // Call the recursive helper function to print DFS traversal
-        DFSUtil(v, visited,inormal);
+        
     }
 	
 	

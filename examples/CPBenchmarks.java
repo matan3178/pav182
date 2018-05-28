@@ -23,7 +23,7 @@ public class CPBenchmarks {
 		if (b != 7 || d != 13 || c != 13 || a != 6)
 			error("Unable to prove b == 7 && d == 13 && c == 13 && a == 6!");
 	}
-
+/*
 	public void example2() {
 		int x = 100;
 		int y;
@@ -113,4 +113,5 @@ public class CPBenchmarks {
 				error("Unable to prove b==0");
 		}
 	}
+	*/
 }

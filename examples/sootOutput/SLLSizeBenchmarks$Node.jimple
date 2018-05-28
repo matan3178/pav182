@@ -4,7 +4,7 @@ public static class SLLSizeBenchmarks$Node extends java.lang.Object
     public SLLSizeBenchmarks$Node next;
     public int data;
 
-/*[]*/
+/*[Ljava.lang.String;@2498a9a4*/
 /*9*/
     public void <init>()
     {
@@ -12,8 +12,10 @@ public static class SLLSizeBenchmarks$Node extends java.lang.Object
 
         this := @this: SLLSizeBenchmarks$Node;
 /*10*/
+
         specialinvoke this.<java.lang.Object: void <init>()>();
 /*10*/
+
         return;
 /*10*/
     }

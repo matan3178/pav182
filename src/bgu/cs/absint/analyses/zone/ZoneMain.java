@@ -14,6 +14,7 @@ public class ZoneMain {
 		PackManager.v().getPack("jtp").add(new Transform("jtp.ZonesAnalysis", new ZonesAnalysis()));
 		soot.Main.main(args);
 	}
+	
 
 	public static class ZonesAnalysis extends BaseAnalysis<ZoneState, ZoneDomain> {
 		public ZonesAnalysis() {

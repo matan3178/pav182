@@ -125,8 +125,24 @@ public class SLLSizeBenchmarks {
 	 *            The number of cells in the list.
 	 * @return An acyclic singly-linked list.
 	 */
-	
-	public Node createAndPrint(int size) {
+	public Node createAndPrint(int size)
+	{
+
+			Node head1 = new Node();
+			Node mat1 = new Node();
+			head1.next = mat1;
+			
+			Node mat2 = new Node();
+			Node mat3 = new Node();
+			Node head2 = new Node();
+			head1.next = mat2;
+			head1.next.next = mat3;
+			
+			analysisLengthDiff(head1, head2, 0, "Unable to assert size difference!");
+			return head1;
+	}
+	/*
+	public Node createAndPrint2(int size) {
 		Node head1 = null;
 		Node head2 = null;
 		for (int i = 0; i < size; ++i) {

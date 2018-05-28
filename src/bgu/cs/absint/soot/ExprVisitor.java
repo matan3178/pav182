@@ -264,4 +264,10 @@ public class ExprVisitor implements JimpleValueSwitch {
 	@Override
 	public void caseLocal(Local l) {
 	}
+
+	@Override
+	public void caseMethodHandle(MethodHandle arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 }

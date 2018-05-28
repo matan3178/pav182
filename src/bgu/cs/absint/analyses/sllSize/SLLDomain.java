@@ -13,8 +13,11 @@ import javax.management.RuntimeErrorException;
 import bgu.cs.absint.AbstractDomain;
 import bgu.cs.absint.AssumeTransformer;
 import bgu.cs.absint.BinaryOperation;
+import bgu.cs.absint.ErrorState;
 import bgu.cs.absint.IdOperation;
 import bgu.cs.absint.UnaryOperation;
+import bgu.cs.absint.analyses.ap.APState;
+import bgu.cs.absint.analyses.zone.ZoneDomain;
 import bgu.cs.absint.analyses.zone.ZoneFactoid;
 import bgu.cs.absint.analyses.zone.ZoneState;
 import bgu.cs.absint.constructor.DisjunctiveState;import bgu.cs.absint.constructor.Factoid;
@@ -81,7 +84,6 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		this.listClassName = listClassName;
 		this.listClassField = listClassField;
 	}
-	public AnalysisLengthDiffTransformer binAnalysis;
 
 	@Override
 	public DisjunctiveState<SLLGraph> getBottom() {
@@ -99,24 +101,57 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	@Override
 	public DisjunctiveState<SLLGraph> ub(DisjunctiveState<SLLGraph> elem1,
 			DisjunctiveState<SLLGraph> elem2) {
-		// Special treatment for top.
+		return operation(elem1, elem2, (zs1, zs2) -> ZoneDomain.v().ub(zs1, zs2));
+	}
+	private interface Operation{
+		ZoneState run(ZoneState zs1, ZoneState zs2);
+	}
+	private DisjunctiveState<SLLGraph> operation(DisjunctiveState<SLLGraph> elem1,
+			DisjunctiveState<SLLGraph> elem2, Operation op){
 		if (elem1 == getTop() || elem2 == getTop())
 			return getTop();
-		binAnalysis.apply(elem1, elem2);
+		
+		Set<SLLGraph> graphSet1 = new HashSet<>();
+		Set<SLLGraph> graphSet2 = new HashSet<>();
+		for(SLLGraph graph:elem1.getDisjuncts())
+			graphSet1.add(graph.copy());
+		for(SLLGraph graph:elem2.getDisjuncts())
+			graphSet2.add(graph.copy());
+				
+		for(SLLGraph graph1:graphSet1){
+			graph1.normalize();
+			for(SLLGraph graph2: graphSet2){
+				graph2.normalize();
+			}
+			for(SLLGraph graph2: graphSet2){
+				if(graph1.equals(graph2)){
+					ZoneState joinedState = op.run(graph1.sizes, graph2.sizes);
+					graph1.sizes = joinedState;
+					graph1.sizes = joinedState;
+				}
+			}
+		}		
 		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
-				elem1.getDisjuncts(), elem2.getDisjuncts());
+				graphSet1, graphSet2);
 		return result;
 	}
 	@Override
 	public DisjunctiveState<SLLGraph> widen(DisjunctiveState<SLLGraph> elem1,
 			DisjunctiveState<SLLGraph> elem2) {
-				return elem2;//TODO
+		return operation(elem1, elem2, (zs1, zs2) -> ZoneDomain.v().widen(zs1, zs2));
 		
 	}
 	@Override
 	public DisjunctiveState<SLLGraph> narrow(DisjunctiveState<SLLGraph> elem1,
 			DisjunctiveState<SLLGraph> elem2) {
-				return elem2;//TODO
+		return operation(elem1, elem2, (zs1, zs2) -> ZoneDomain.v().narrow(zs1, zs2));
+	}
+	@Override
+	public DisjunctiveState<SLLGraph> reduce(DisjunctiveState<SLLGraph> input) {
+		if (input == getTop())
+			return getTop();
+		//TODO
+		return input;
 		
 	}
 	
@@ -322,19 +357,30 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					change = true;
 					Local a = n.edgeLen;
 					Local b = n.next.edgeLen;
+					n.next = n.next.next;				
+					
+					
+					int newVal = getConstant(result, a,  ZoneFactoid.ZERO_VAR).value;
+					newVal += getConstant(result, b,  ZoneFactoid.ZERO_VAR).value;
+					Local newLocal = int2local(3);
 					
 					result.sizes.removeVar(b);
-					
-
-					int val  = (a.getNumber()+b.getNumber());
-
-					result.sizes.addFactoid(a, ZoneFactoid.ZERO_VAR, IntConstant.v(val));
+					result.sizes.removeVar(a);
+					result.sizes.addFactoid(newLocal, ZoneFactoid.ZERO_VAR, IntConstant.v(newVal));
 				}
 			}
 		}
 
 		result.removeGarbageNodes();
 		return result;
+	}
+	
+	private IntConstant getConstant(SLLGraph graph, Local a, Local b){
+		for(ZoneFactoid zf: graph.sizes.getFactoids()){
+			if(zf.equalVars(a,  b))
+				return zf.bound;
+		}
+		return null;
 	}
 
 	/**
@@ -418,18 +464,11 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				// transformer = new AssertDisjointTransformer();
 			} else if (methodName.equals("analysisAssertNoGarbage")) {
 				// transformer = new AssertNoGarbageTransformer();
-			} else if (methodName.equals("analysisLengthDiff"))
-			{
+			} else if (methodName.equals("analysisLengthDiff")){
 				Local a = (Local)expr.getArg(0);
 				Local b = (Local) expr.getArg(1);
-			
 				IntConstant c =  (IntConstant) expr.getArg(2);
-				int val = c.value;
-				if(a !=null)
-				{
-					Local d = a;
-				}
-				binAnalysis = new AnalysisLengthDiffTransformer(new Node(null,a),new Node(null,b),c.value);
+				transformer = new AnalysisLengthDiffTransformer(a,b,c.value);
 			}
 			
 		}
@@ -516,7 +555,10 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			for (SLLGraph graph : input) {
 				SLLGraph disjunct = graph.copy();
 				disjunct.unmapLocal(lhs);
-				Node newNode = new Node(disjunct.nullNode, int2local(1));//TODO
+				Local newLocal = int2local(1);
+				disjunct.sizes.removeVar(lhs);
+				Node newNode = new Node(disjunct.nullNode, lhs);//TODO
+				disjunct.sizes.addFactoid(lhs, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
 				disjunct.addNode(newNode);
 				disjunct.mapLocal(lhs, newNode);
 				disjuncts.add(disjunct);
@@ -526,7 +568,54 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			return result;
 		}
 	}
+	protected class AnalysisLengthDiffTransformer extends
+	UnaryOperation<DisjunctiveState<SLLGraph>> {
+		private int diff;
+		private Local headA, headB;
+		public AnalysisLengthDiffTransformer(Local headA, Local headB, int diff) {
+			this.diff = diff;
+			this.headA = headA;
+			this.headB = headB;
+		}
+		
+		@Override
+		public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
+			Set<SLLGraph> disjuncts = new HashSet<>();
+			for (SLLGraph graph : input) {
+				SLLGraph disjunct = graph.copy();
+								
+				Node nodeA = disjunct.pointsTo(headA);
+				Node nodeB = disjunct.pointsTo(headB);
+				int lenA = 0;
+				int lenB = 0;
+				while(nodeA != disjunct.nullNode){
+					Local localA = nodeA.edgeLen;
+					lenA += getConstant(disjunct, localA, ZoneFactoid.ZERO_VAR).value;
+					nodeA = nodeA.next;
+				}
+				while(nodeB != disjunct.nullNode){
+					Local localB = nodeA.edgeLen;
+					lenB += getConstant(disjunct, localB, ZoneFactoid.ZERO_VAR).value;
+					nodeB = nodeB.next;
+				}
+				if(Math.abs(lenA - lenB) == diff)
+					disjuncts.add(disjunct);
+				else
+					return new ErrorDisjunctiveState();
+			}
+			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
+					disjuncts);
+			return result;
+		}
+	}
+	private class ErrorDisjunctiveState extends DisjunctiveState<SLLGraph> implements ErrorState{
 
+		@Override
+		public String getMessages() {
+			return "ErrorDisjunctiveState";
+		}
+		
+	}
 	/**
 	 * A transformer for statements of the form {@code x=null}.
 	 * 
@@ -766,6 +855,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			return result;
 		}
 	}
+	/*
 	protected class AnalysisLengthDiffTransformer extends
 		BinaryOperation<DisjunctiveState<SLLGraph>>{
 		Node list1;
@@ -785,7 +875,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		}
 		
 		
-	}
+	}*/
 
 	/**
 	 * A transformer that checks whether two given list reference variables are
