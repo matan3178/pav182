@@ -16,6 +16,7 @@ import bgu.cs.absint.BinaryOperation;
 import bgu.cs.absint.IdOperation;
 import bgu.cs.absint.UnaryOperation;
 import bgu.cs.absint.analyses.zone.ZoneFactoid;
+import bgu.cs.absint.analyses.zone.ZoneState;
 import bgu.cs.absint.constructor.DisjunctiveState;import bgu.cs.absint.constructor.Factoid;
 import bgu.cs.absint.soot.TransformerMatcher;
 import soot.IntType;
@@ -80,6 +81,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		this.listClassName = listClassName;
 		this.listClassField = listClassField;
 	}
+	public AnalysisLengthDiffTransformer binAnalysis;
 
 	@Override
 	public DisjunctiveState<SLLGraph> getBottom() {
@@ -100,12 +102,24 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		// Special treatment for top.
 		if (elem1 == getTop() || elem2 == getTop())
 			return getTop();
-		
+		binAnalysis.apply(elem1, elem2);
 		DisjunctiveState<SLLGraph> result = new DisjunctiveState<SLLGraph>(
 				elem1.getDisjuncts(), elem2.getDisjuncts());
 		return result;
 	}
-
+	@Override
+	public DisjunctiveState<SLLGraph> widen(DisjunctiveState<SLLGraph> elem1,
+			DisjunctiveState<SLLGraph> elem2) {
+				return elem2;//TODO
+		
+	}
+	@Override
+	public DisjunctiveState<SLLGraph> narrow(DisjunctiveState<SLLGraph> elem1,
+			DisjunctiveState<SLLGraph> elem2) {
+				return elem2;//TODO
+		
+	}
+	
 	/**
 	 * Applies {@code generalize} to the shape graphs in both input sets.
 	 */
@@ -114,7 +128,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			DisjunctiveState<SLLGraph> elem2) {
 		// Special treatment for top.
 		if (elem1 == getTop() || elem2 == getTop())
-			return getTop();
+			return getTop();//widen narrow
 
 		HashSet<SLLGraph> disjuncts = new HashSet<>();
 		for (SLLGraph graph : elem1) {
@@ -306,10 +320,15 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 						|| result.getPreds(n.next).size() > 1;
 				if (!isNextInterruption) {
 					change = true;
-					n.next = n.next.next;
-					int a = n.edgeLen.getNumber();
-					int b = n.edgeLen.getNumber();
-					n.edgeLen =int2local(a+b); // update the length of the edge
+					Local a = n.edgeLen;
+					Local b = n.next.edgeLen;
+					
+					result.sizes.removeVar(b);
+					
+
+					int val  = (a.getNumber()+b.getNumber());
+
+					result.sizes.addFactoid(a, ZoneFactoid.ZERO_VAR, IntConstant.v(val));
 				}
 			}
 		}
@@ -366,6 +385,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 */
 	protected class SLLMatcher extends
 			TransformerMatcher<DisjunctiveState<SLLGraph>> {
+
 		@Override
 		public void caseInvokeStmt(InvokeStmt stmt) {
 			InvokeExpr expr = stmt.getInvokeExpr();
@@ -402,13 +422,14 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			{
 				Local a = (Local)expr.getArg(0);
 				Local b = (Local) expr.getArg(1);
+			
 				IntConstant c =  (IntConstant) expr.getArg(2);
 				int val = c.value;
 				if(a !=null)
 				{
 					Local d = a;
 				}
-				AnalysisLengthDiffTransformer samek = new AnalysisLengthDiffTransformer(null,null,0);
+				binAnalysis = new AnalysisLengthDiffTransformer(new Node(null,a),new Node(null,b),c.value);
 			}
 			
 		}

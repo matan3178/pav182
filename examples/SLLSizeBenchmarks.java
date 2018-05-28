@@ -114,7 +114,8 @@ public class SLLSizeBenchmarks {
 		}
 		return result;
 	}
-*/
+	*/
+
 	/**
 	 * Creates two equal-sized acyclic singly-linked lists of a given size and
 	 * prints them to the console. The data field of a cell holds its position in
@@ -130,12 +131,9 @@ public class SLLSizeBenchmarks {
 		Node head2 = null;
 		for (int i = 0; i < size; ++i) {
 			Node n1 = new Node();
-			error("WHAT WITH THIS");
 			n1.next = head1;
-			error("WHAT WITH THIS");
 			n1.data = i;
 			head1 = n1;
-
 			Node n2 = new Node();
 			n2.next = head1;
 			n2.data = i;
@@ -160,7 +158,7 @@ public class SLLSizeBenchmarks {
 		return head1;
 	}
 
-/*
+
 	
 	public void createAndPrintSmall() {
 		Node head = new Node();
