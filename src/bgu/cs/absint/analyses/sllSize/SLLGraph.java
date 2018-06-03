@@ -175,10 +175,11 @@ public class SLLGraph {
 	@Override
 	public boolean equals(Object o) {
 		SLLGraph other = (SLLGraph) o;
-
+		this.normalize();
+		other.normalize();
 		if (nodes.size() != other.nodes.size())
 			return false;
-
+		
 		// Attempt to create an initial matching of nodes based on
 		// the pointed-by sets.
 		Map<Node, Node> matching = new HashMap<>();
@@ -215,7 +216,8 @@ public class SLLGraph {
 		for (Map.Entry<Node, Node> entry : matching.entrySet()) {
 			Node thisNode = entry.getKey();
 			Node otherNode = entry.getValue();
-			if (thisNode.edgeLen != otherNode.edgeLen)//TODO: seems fine
+			//TODO: 
+			if (thisNode.edgeLen != otherNode.edgeLen)
 				return false;
 			if (thisNode.next == null) {
 				if (otherNode.next != null)
@@ -231,6 +233,7 @@ public class SLLGraph {
 
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		ArrayList<String> substrings = new ArrayList<>();
@@ -271,12 +274,6 @@ public class SLLGraph {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	static ArrayList<Local> vars;
 	
 
@@ -302,10 +299,12 @@ public class SLLGraph {
 		
 		Iterator<Node> iter = this.nodes.iterator();
 		int numOfNodes =this.nodes.size();
+//		if(numOfNodes>1)
+//			System.out.println("");
 		for(int i=0;i<numOfNodes;i++){		
 			mapper.put(i,iter.next());
 		}
-		DFS(0,numOfNodes,this);
+		DFS(0,numOfNodes);
 		
 	}
 	
@@ -318,29 +317,32 @@ public class SLLGraph {
 		}
 		return -1;
 	}
-	void DFSUtil(int v,boolean visited[],SLLGraph inormal)
+	int DFSUtil(int v,boolean visited[])
     {
         // Mark the current node as visited and print it
 		if(v>=visited.length)
-			return;
+			return v;
         visited[v] = true;
         
-        System.out.println("Visited " + v);
-        Node n = inormal.mapper.get(v).next;
-        if(n!=null)
+//        System.out.println("Visited " + v);
+//        Node n = this.mapper.get(v).next;
+        Node n = this.mapper.get(v);
+        if(n != nullNode)
         {
-	        int nIndex = revMap(n);
 	        
 	        Local oldLen = n.edgeLen;
-	        IntConstant intConst = getConstant(inormal, oldLen, ZoneFactoid.ZERO_VAR);
-	        inormal.sizes.removeVar(oldLen);
-	        n.edgeLen=nextLocal(nIndex);
-	        inormal.sizes.addFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, intConst);	        
+	        IntConstant intConst = getConstant(this, oldLen, ZoneFactoid.ZERO_VAR);
+	        this.sizes.removeVar(oldLen);
+	        n.edgeLen=nextLocal(v);
+	        v++;
+	        this.sizes.addFactoid(n.edgeLen, ZoneFactoid.ZERO_VAR, intConst);	        
+//	        v = revMap(n.next);
 	        
-	        if (!visited[nIndex])
-	            DFSUtil(nIndex, visited,inormal);
+	        if (v<visited.length && !visited[v])
+	            v = DFSUtil(v, visited);
         }
-    
+        else v++;
+        return v;
     }
 	private IntConstant getConstant(SLLGraph graph, Local a, Local b){
 		for(ZoneFactoid zf: graph.sizes.getFactoids()){
@@ -352,7 +354,7 @@ public class SLLGraph {
 
  
     // The function to do DFS traversal. It uses recursive DFSUtil()
-    void DFS(int v,int size,SLLGraph inormal)
+    void DFS(int v,int size)
     {
         // Mark all the vertices as not visited(set as
         // false by default in java)
@@ -360,7 +362,7 @@ public class SLLGraph {
  
         for(boolean b:visited){
         	if(!b)
-        		DFSUtil(v, visited,inormal);
+        		v = DFSUtil(v, visited);
         }
         // Call the recursive helper function to print DFS traversal
         

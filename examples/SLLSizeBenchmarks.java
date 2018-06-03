@@ -125,24 +125,24 @@ public class SLLSizeBenchmarks {
 	 *            The number of cells in the list.
 	 * @return An acyclic singly-linked list.
 	 */
-//	public Node nitzan(int size)
-//	{
-//		analysisInitAllNulls();
-//		Node head1 = new Node();
-//		Node mat1 = new Node();
-//		head1.next = mat1;
-//		
-//		Node mat2 = new Node();
-//		Node mat3 = new Node();
-//		Node head2 = new Node();
-//		head1.next = mat2;
-//		head1.next.next = mat3;
-//		
-//		analysisLengthDiff(head1, head2, -1, "Unable to assert size difference!");
-//		analysisLengthDiff(head2, head1, -1, "Unable to assert size difference!");
-//
-//		return head1;
-//	}
+	public Node nitzan(int size)
+	{
+		analysisInitAllNulls();
+		Node head1 = new Node();
+		Node mat1 = new Node();
+		head1.next = mat1;
+		
+		Node mat2 = new Node();
+		Node mat3 = new Node();
+		Node head2 = new Node();
+		head1.next = mat2;
+		head1.next.next = mat3;
+		
+		analysisLengthDiff(head1, head2, 2, "Unable to assert size difference!");
+		analysisLengthDiff(head2, head1, 2, "Unable to assert size difference!");
+
+		return head1;
+	}
 	
 	public Node createAndPrint2(int size) {
 		analysisInitAllNulls();
@@ -153,6 +153,7 @@ public class SLLSizeBenchmarks {
 			n1.next = head1;
 			n1.data = i;
 			head1 = n1;
+			
 			Node n2 = new Node();
 			n2.next = head2;
 			n2.data = i;
@@ -177,24 +178,24 @@ public class SLLSizeBenchmarks {
 		return head1;
 	}
 
-//	public void createAndPrintSmall() {
-//		
-//		analysisInitAllNulls();
-//		Node head = new Node();
-//		Node nitz1 = new Node();
-//		Node nitz2 = new Node();
-//		Node nitz3 = new Node();
-//		head.next = nitz1;
-//		nitz1.next = nitz2;
-//		nitz2.next = nitz3;
-//		Node t;
-//		t = nitz3.next;
-//		if (t != null) {
-//			error("unexpected");
-//
-//		}
-//		
-//	}
+	public void createAndPrintSmall() {
+		
+		analysisInitAllNulls();
+		Node head = new Node();
+		Node nitz1 = new Node();
+		Node nitz2 = new Node();
+		Node nitz3 = new Node();
+		head.next = nitz1;
+		nitz1.next = nitz2;
+		nitz2.next = nitz3;
+		Node t;
+		t = nitz3.next;
+		if (t != null) {
+			error("unexpected");
+
+		}
+		
+	}
 	
 
 }

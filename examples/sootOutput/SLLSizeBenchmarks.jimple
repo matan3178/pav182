@@ -2,7 +2,7 @@ public class SLLSizeBenchmarks extends java.lang.Object
 {
 /*SLLSizeBenchmarks.java*/
 
-/*[Ljava.lang.String;@538bcc31*/
+/*[Ljava.lang.String;@6583d79f*/
     private static final void error(java.lang.String)
     {
         java.lang.String message;
@@ -14,7 +14,7 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 14 eline: 14 spos: 28 epos: 41 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@a5844c3*/
+/*[Ljava.lang.String;@510804f1*/
     public static void analysisInitAcyclic(SLLSizeBenchmarks$Node)
     {
         SLLSizeBenchmarks$Node x;
@@ -26,14 +26,14 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 25 eline: 25 spos: 41 epos: 46 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@28eca1c7*/
+/*[Ljava.lang.String;@7954280d*/
     public static void analysisInitAllNulls()
     {
         return;
 /*Source Line Pos Tag: sline: 33 eline: 34 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@30af8c02*/
+/*[Ljava.lang.String;@765de908*/
     public static void analysisAssertNotNull(SLLSizeBenchmarks$Node, java.lang.String)
     {
         SLLSizeBenchmarks$Node x;
@@ -49,7 +49,7 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 40 eline: 40 spos: 51 epos: 64 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@75b4f091*/
+/*[Ljava.lang.String;@137f071d*/
     public static void analysisAssertReachable(SLLSizeBenchmarks$Node, SLLSizeBenchmarks$Node, java.lang.String)
     {
         SLLSizeBenchmarks$Node x, y;
@@ -68,7 +68,7 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 49 eline: 49 spos: 61 epos: 74 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@3d82ccb8*/
+/*[Ljava.lang.String;@241b60f*/
     public static void analysisAssertDisjoint(SLLSizeBenchmarks$Node, SLLSizeBenchmarks$Node, java.lang.String)
     {
         SLLSizeBenchmarks$Node x, y;
@@ -87,7 +87,7 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 57 eline: 57 spos: 60 epos: 73 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@702da056*/
+/*[Ljava.lang.String;@5a0df20a*/
     public static void analysisAssertAcyclic(SLLSizeBenchmarks$Node, java.lang.String)
     {
         SLLSizeBenchmarks$Node x;
@@ -103,7 +103,7 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 65 eline: 65 spos: 51 epos: 64 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@3c2eedcd*/
+/*[Ljava.lang.String;@438155ea*/
     public static void analysisAssertCyclic(SLLSizeBenchmarks$Node, java.lang.String)
     {
         SLLSizeBenchmarks$Node x;
@@ -119,7 +119,7 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 73 eline: 73 spos: 50 epos: 63 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@6e4ca2a1*/
+/*[Ljava.lang.String;@28adf568*/
     public static void analysisAssertNoGarbage(java.lang.String)
     {
         java.lang.String message;
@@ -131,7 +131,7 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 84 eline: 84 spos: 45 epos: 58 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@450044dc*/
+/*[Ljava.lang.String;@27d3cfbc*/
     public static void analysisLengthDiff(SLLSizeBenchmarks$Node, SLLSizeBenchmarks$Node, int, java.lang.String)
     {
         SLLSizeBenchmarks$Node list1, list2;
@@ -154,120 +154,416 @@ public class SLLSizeBenchmarks extends java.lang.Object
 /*Source Line Pos Tag: sline: 91 eline: 91 spos: 74 epos: 87 file: SLLSizeBenchmarks.java*/
     }
 
-/*[Ljava.lang.String;@58b2633a*/
+/*[Ljava.lang.String;@12fbe4ee*/
+    public SLLSizeBenchmarks$Node nitzan(int)
+    {
+        SLLSizeBenchmarks this;
+        int size;
+        SLLSizeBenchmarks$Node temp$0, temp$1, temp$2, temp$3, temp$4, temp$5;
+
+        this := @this: SLLSizeBenchmarks;
+/*Source Line Pos Tag: sline: 128 eline: 145 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
+/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
+/*V[1] : true*/
+/*V[0] = true // this := @this: SLLSizeBenchmarks*/
+/*V[0] : true*/
+
+        size := @parameter0: int;
+/*Source Line Pos Tag: sline: 128 eline: 128 spos: 21 epos: 28 file: SLLSizeBenchmarks.java*/
+/*V[2] = V[1] // size := @parameter0: int*/
+/*V[2] : true*/
+
+        staticinvoke <SLLSizeBenchmarks: void analysisInitAllNulls()>();
+/*Source Line Pos Tag: sline: 130 eline: 130 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[3] = InitAllNullsTransformer(V[2]) // staticinvoke <SLLSizeBenchmarks: void analysisInitAllNulls()>()*/
+/*V[3] : graph = {temp$5=null, temp$4=null, temp$3=null, temp$2=null, temp$1=null, temp$0=null}*/
+
+        temp$0 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 131 eline: 131 spos: 3 epos: 26 file: SLLSizeBenchmarks.java*/
+/*V[4] = AssignNewExprToLocalTransformer(V[3]) // temp$0 = new SLLSizeBenchmarks$Node*/
+/*V[4] : graph = {temp$5=null, temp$4=null, temp$3=null, temp$2=null, temp$1=null, temp$0=n0, n0.next=null}*/
+
+        specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 131 eline: 131 spos: 16 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[5] = V[4] // specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[5] : graph = {temp$5=null, temp$4=null, temp$3=null, temp$2=null, temp$1=null, temp$0=n0, n0.next=null}*/
+
+        temp$1 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 132 eline: 132 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[6] = AssignNewExprToLocalTransformer(V[5]) // temp$1 = new SLLSizeBenchmarks$Node*/
+/*V[6] : graph = {temp$5=null, temp$4=null, temp$3=null, temp$2=null, temp$1=n1, temp$0=n0, n0.next=null, n1.next=null}*/
+
+        specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 132 eline: 132 spos: 15 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[7] = V[6] // specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[7] : graph = {temp$5=null, temp$4=null, temp$3=null, temp$2=null, temp$1=n1, temp$0=n0, n0.next=null, n1.next=null}*/
+
+        temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$1;
+/*Source Line Pos Tag: sline: 133 eline: 133 spos: 9 epos: 12 file: SLLSizeBenchmarks.java*/
+/*V[8] = AssignLocalToNextFieldTransformer(V[7]) // temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$1*/
+/*V[8] : graph = {temp$5=null, temp$4=null, temp$3=null, temp$2=null, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=null}*/
+
+        temp$2 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 135 eline: 135 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[9] = AssignNewExprToLocalTransformer(V[8]) // temp$2 = new SLLSizeBenchmarks$Node*/
+/*V[9] : graph = {temp$5=null, temp$4=null, temp$3=null, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=null, n2.next=null}*/
+
+        specialinvoke temp$2.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 135 eline: 135 spos: 15 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[10] = V[9] // specialinvoke temp$2.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[10] : graph = {temp$5=null, temp$4=null, temp$3=null, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=null, n2.next=null}*/
+
+        temp$3 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 136 eline: 136 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[11] = AssignNewExprToLocalTransformer(V[10]) // temp$3 = new SLLSizeBenchmarks$Node*/
+/*V[11] : graph = {temp$5=null, temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=null, n2.next=null, n3.next=null}*/
+
+        specialinvoke temp$3.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 136 eline: 136 spos: 15 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[12] = V[11] // specialinvoke temp$3.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[12] : graph = {temp$5=null, temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=null, n2.next=null, n3.next=null}*/
+
+        temp$4 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 137 eline: 137 spos: 3 epos: 26 file: SLLSizeBenchmarks.java*/
+/*V[13] = AssignNewExprToLocalTransformer(V[12]) // temp$4 = new SLLSizeBenchmarks$Node*/
+/*V[13] : graph = {temp$5=null, temp$4=n4, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=null, n2.next=null, n3.next=null, n4.next=null}*/
+
+        specialinvoke temp$4.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 137 eline: 137 spos: 16 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[14] = V[13] // specialinvoke temp$4.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[14] : graph = {temp$5=null, temp$4=n4, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=null, n2.next=null, n3.next=null, n4.next=null}*/
+
+        temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$2;
+/*Source Line Pos Tag: sline: 138 eline: 138 spos: 9 epos: 12 file: SLLSizeBenchmarks.java*/
+/*V[15] = AssignLocalToNextFieldTransformer(V[14]) // temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$2*/
+/*V[15] : graph = {temp$5=null, temp$4=n4, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n2, n1.next=null, n2.next=null, n3.next=null, n4.next=null}*/
+
+        temp$5 = temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 139 eline: 139 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[16] = AssignNextToLocalTransformer(V[15]) // temp$5 = temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[16] : graph = {temp$5=n2, temp$4=n4, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n2, n1.next=null, n2.next=null, n3.next=null, n4.next=null}*/
+
+        temp$5.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$3;
+/*Source Line Pos Tag: sline: 139 eline: 139 spos: 14 epos: 17 file: SLLSizeBenchmarks.java*/
+/*V[17] = AssignLocalToNextFieldTransformer(V[16]) // temp$5.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$3*/
+/*V[17] : graph = {temp$5=n2, temp$4=n4, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n2, n1.next=null, n2.next=n3, n3.next=null, n4.next=null}*/
+
+        staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(temp$0, temp$4, 2, "Unable to assert size difference!");
+/*Source Line Pos Tag: sline: 141 eline: 141 spos: 3 epos: 75 file: SLLSizeBenchmarks.java*/
+/*V[18] = AnalysisLengthDiffTransformer(V[17]) // staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(temp$0, temp$4, 2, "Unable to assert size difference!")*/
+/*V[18] : graph = {temp$5=n2, temp$4=n4, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n2, n1.next=null, n2.next=n3, n3.next=null, n4.next=null}*/
+
+        staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(temp$4, temp$0, 2, "Unable to assert size difference!");
+/*Source Line Pos Tag: sline: 142 eline: 142 spos: 3 epos: 75 file: SLLSizeBenchmarks.java*/
+/*V[19] = AnalysisLengthDiffTransformer(V[18]) // staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(temp$4, temp$0, 2, "Unable to assert size difference!")*/
+/*V[19] : graph = {temp$5=n2, temp$4=n4, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n2, n1.next=null, n2.next=n3, n3.next=null, n4.next=null}*/
+
+        return temp$0;
+/*Source Line Pos Tag: sline: 144 eline: 144 spos: 3 epos: 15 file: SLLSizeBenchmarks.java*/
+/*V[20] = V[19] // return temp$0*/
+/*V[20] : graph = {temp$5=n2, temp$4=n4, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n2, n1.next=null, n2.next=n3, n3.next=null, n4.next=null}*/
+    }
+
+/*[Ljava.lang.String;@55106d43*/
+    public SLLSizeBenchmarks$Node createAndPrint2(int)
+    {
+        SLLSizeBenchmarks this;
+        int size, i, temp$2;
+        SLLSizeBenchmarks$Node head1, head2, temp$0, temp$1, t7, t8, temp$3, temp$4;
+
+        this := @this: SLLSizeBenchmarks;
+/*Source Line Pos Tag: sline: 147 eline: 179 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
+/*V[0] = true // this := @this: SLLSizeBenchmarks*/
+/*V[0] : true*/
+/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
+/*V[1] : true*/
+
+        size := @parameter0: int;
+/*Source Line Pos Tag: sline: 147 eline: 147 spos: 30 epos: 37 file: SLLSizeBenchmarks.java*/
+/*V[2] = V[1] // size := @parameter0: int*/
+/*V[2] : true*/
+
+        staticinvoke <SLLSizeBenchmarks: void analysisInitAllNulls()>();
+/*Source Line Pos Tag: sline: 148 eline: 148 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*V[3] = InitAllNullsTransformer(V[2]) // staticinvoke <SLLSizeBenchmarks: void analysisInitAllNulls()>()*/
+/*V[3] : graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null}*/
+
+        head1 = null;
+/*Source Line Pos Tag: sline: 149 eline: 149 spos: 3 epos: 20 file: SLLSizeBenchmarks.java*/
+/*V[4] = AssignNullTransformer(V[3]) // head1 = null*/
+/*V[4] : graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null}*/
+
+        head2 = null;
+/*Source Line Pos Tag: sline: 150 eline: 150 spos: 3 epos: 20 file: SLLSizeBenchmarks.java*/
+/*V[5] = AssignNullTransformer(V[4]) // head2 = null*/
+/*V[5] : graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null}*/
+
+        i = 0;
+/*Source Line Pos Tag: sline: 151 eline: 151 spos: 8 epos: 16 file: SLLSizeBenchmarks.java*/
+/*V[6] = V[5] // i = 0*/
+/*V[6] : graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null}*/
+
+     label1:
+        if i < size goto label2;
+/*Source Line Pos Tag: sline: 151 eline: 151 spos: 19 epos: 26 file: SLLSizeBenchmarks.java*/
+/*V[7] = V[9] // assume i < size*/
+/*V[7] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+/*V[9] = JoinLoop_SLLDomain(V[6], V[23]) // if i < size goto temp$0 = new SLLSizeBenchmarks$Node*/
+/*V[9] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+/*V[8] = V[9] // assume !(i < size)*/
+/*V[8] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+
+        goto label3;
+/*Source Line Pos Tag: sline: 151 eline: 151 spos: 19 epos: 26 file: SLLSizeBenchmarks.java*/
+/*V[10] = V[8] // goto [?= staticinvoke <SLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!")]*/
+/*V[10] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+
+     label2:
+        temp$0 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 152 eline: 152 spos: 4 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[11] = AssignNewExprToLocalTransformer(V[7]) // temp$0 = new SLLSizeBenchmarks$Node*/
+/*V[11] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=n0, head2=null, head1=null, n0.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null})*/
+
+        specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 152 eline: 152 spos: 14 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[12] = V[11] // specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[12] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=n0, head2=null, head1=null, n0.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=null})*/
+
+        temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = head1;
+/*Source Line Pos Tag: sline: 153 eline: 153 spos: 7 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[13] = AssignLocalToNextFieldTransformer(V[12]) // temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = head1*/
+/*V[13] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=n0, head2=null, head1=null, n0.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0})*/
+
+        temp$0.<SLLSizeBenchmarks$Node: int data> = i;
+/*Source Line Pos Tag: sline: 154 eline: 154 spos: 7 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[14] = V[13] // temp$0.<SLLSizeBenchmarks$Node: int data> = i*/
+/*V[14] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=n0, head2=null, head1=null, n0.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n2, head2=n1, head1=n0, n0.next=null, n1.next=null, n2.next=n0})*/
+
+        head1 = temp$0;
+/*Source Line Pos Tag: sline: 155 eline: 155 spos: 4 epos: 8 file: SLLSizeBenchmarks.java*/
+/*V[15] = AssignRefToRefTransformer(V[14]) // head1 = temp$0*/
+/*V[15] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=n0, head2=null, head1=n0, n0.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0})*/
+
+        temp$1 = new SLLSizeBenchmarks$Node;
+/*Source Line Pos Tag: sline: 157 eline: 157 spos: 4 epos: 24 file: SLLSizeBenchmarks.java*/
+/*V[16] = AssignNewExprToLocalTransformer(V[15]) // temp$1 = new SLLSizeBenchmarks$Node*/
+/*V[16] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n3, temp$0=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=null, head1=n0, n0.next=null, n1.next=null})*/
+
+        specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>();
+/*Source Line Pos Tag: sline: 157 eline: 157 spos: 14 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[17] = V[16] // specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>()*/
+/*V[17] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n3, temp$0=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=null, head1=n0, n0.next=null, n1.next=null})*/
+
+        temp$1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = head2;
+/*Source Line Pos Tag: sline: 158 eline: 158 spos: 7 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[18] = AssignLocalToNextFieldTransformer(V[17]) // temp$1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = head2*/
+/*V[18] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n3, temp$0=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=null, head1=n0, n0.next=null, n1.next=null})*/
+
+        temp$1.<SLLSizeBenchmarks$Node: int data> = i;
+/*Source Line Pos Tag: sline: 159 eline: 159 spos: 7 epos: 10 file: SLLSizeBenchmarks.java*/
+/*V[19] = V[18] // temp$1.<SLLSizeBenchmarks$Node: int data> = i*/
+/*V[19] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n3, temp$0=n2, head2=n1, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=null, head1=n0, n0.next=null, n1.next=null})*/
+
+        head2 = temp$1;
+/*Source Line Pos Tag: sline: 160 eline: 160 spos: 4 epos: 8 file: SLLSizeBenchmarks.java*/
+/*V[20] = AssignRefToRefTransformer(V[19]) // head2 = temp$1*/
+/*V[20] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n3, temp$0=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1})*/
+
+        temp$2 = i + 1;
+/*Source Line Pos Tag: sline: 151 eline: 151 spos: 29 epos: 31 file: SLLSizeBenchmarks.java*/
+/*V[21] = V[20] // temp$2 = i + 1*/
+/*V[21] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n3, temp$0=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1})*/
+
+        i = temp$2;
+/*Source Line Pos Tag: sline: 151 eline: 151 spos: 31 epos: 31 file: SLLSizeBenchmarks.java*/
+/*V[22] = V[21] // i = temp$2*/
+/*V[22] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n3, temp$0=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1})*/
+
+        goto label1;
+/*Source Line Pos Tag: sline: 151 eline: 161 spos: 3 epos: 3 file: SLLSizeBenchmarks.java*/
+/*V[23] = V[22] // goto [?= (branch)]*/
+/*V[23] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n3, temp$0=n2, head2=n3, head1=n2, n0.next=null, n1.next=null, n2.next=n0, n3.next=n1})*/
+
+     label3:
+        staticinvoke <SLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!");
+/*Source Line Pos Tag: sline: 162 eline: 162 spos: 3 epos: 75 file: SLLSizeBenchmarks.java*/
+/*V[24] = V[10] // staticinvoke <SLLSizeBenchmarks: void analysisAssertNoGarbage(java.lang.String)>("Unable to prove absence of garbage in create!")*/
+/*V[24] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+
+        staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 0, "Unable to assert size difference!");
+/*Source Line Pos Tag: sline: 165 eline: 165 spos: 3 epos: 75 file: SLLSizeBenchmarks.java*/
+/*V[25] = AnalysisLengthDiffTransformer(V[24]) // staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(head1, head2, 0, "Unable to assert size difference!")*/
+/*V[25] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+
+        staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(head2, head1, 0, "Unable to assert size difference!");
+/*Source Line Pos Tag: sline: 166 eline: 166 spos: 3 epos: 75 file: SLLSizeBenchmarks.java*/
+/*V[26] = AnalysisLengthDiffTransformer(V[25]) // staticinvoke <SLLSizeBenchmarks: void analysisLengthDiff(SLLSizeBenchmarks$Node,SLLSizeBenchmarks$Node,int,java.lang.String)>(head2, head1, 0, "Unable to assert size difference!")*/
+/*V[26] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+
+        t7 = head1;
+/*Source Line Pos Tag: sline: 168 eline: 168 spos: 3 epos: 18 file: SLLSizeBenchmarks.java*/
+/*V[27] = AssignRefToRefTransformer(V[26]) // t7 = head1*/
+/*V[27] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=n0, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+
+        t8 = head2;
+/*Source Line Pos Tag: sline: 169 eline: 169 spos: 3 epos: 18 file: SLLSizeBenchmarks.java*/
+/*V[28] = AssignRefToRefTransformer(V[27]) // t8 = head2*/
+/*V[28] : or(graph = {temp$4=null, temp$3=null, t8=n1, t7=n0, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+
+     label4:
+        if t7 != null goto label5;
+/*Source Line Pos Tag: sline: 170 eline: 170 spos: 10 epos: 19 file: SLLSizeBenchmarks.java*/
+/*V[31] = JoinLoop_SLLDomain(V[28], V[37]) // if t7 != null goto temp$3 = t7.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[31] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=n1, t7=n0, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+/*V[30] = AssumeLocalEqNullTransformer(V[31]) // assume !(t7 != null)*/
+/*V[30] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+/*V[29] = !AssumeLocalEqNullTransformer(V[31]) // assume t7 != null*/
+/*V[29] : graph = {temp$4=null, temp$3=null, t8=n1, t7=n0, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}*/
+
+        goto label6;
+/*Source Line Pos Tag: sline: 170 eline: 170 spos: 10 epos: 19 file: SLLSizeBenchmarks.java*/
+/*V[32] = V[30] // goto [?= return head1]*/
+/*V[32] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+
+     label5:
+        temp$3 = t7.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 173 eline: 173 spos: 4 epos: 16 file: SLLSizeBenchmarks.java*/
+/*V[33] = AssignNextToLocalTransformer(V[29]) // temp$3 = t7.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[33] : graph = {temp$4=null, temp$3=null, t8=n1, t7=n0, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}*/
+
+        t7 = temp$3;
+/*Source Line Pos Tag: sline: 173 eline: 173 spos: 4 epos: 5 file: SLLSizeBenchmarks.java*/
+/*V[34] = AssignRefToRefTransformer(V[33]) // t7 = temp$3*/
+/*V[34] : graph = {temp$4=null, temp$3=null, t8=n1, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}*/
+
+        temp$4 = t8.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
+/*Source Line Pos Tag: sline: 176 eline: 176 spos: 4 epos: 16 file: SLLSizeBenchmarks.java*/
+/*V[35] = AssignNextToLocalTransformer(V[34]) // temp$4 = t8.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[35] : graph = {temp$4=null, temp$3=null, t8=n1, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}*/
+
+        t8 = temp$4;
+/*Source Line Pos Tag: sline: 176 eline: 176 spos: 4 epos: 5 file: SLLSizeBenchmarks.java*/
+/*V[36] = AssignRefToRefTransformer(V[35]) // t8 = temp$4*/
+/*V[36] : graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}*/
+
+        goto label4;
+/*Source Line Pos Tag: sline: 170 eline: 177 spos: 3 epos: 3 file: SLLSizeBenchmarks.java*/
+/*V[37] = V[36] // goto [?= (branch)]*/
+/*V[37] : graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}*/
+
+     label6:
+        return head1;
+/*Source Line Pos Tag: sline: 178 eline: 178 spos: 3 epos: 15 file: SLLSizeBenchmarks.java*/
+/*V[38] = V[32] // return head1*/
+/*V[38] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+    }
+
+/*[Ljava.lang.String;@30dfd6df*/
     public void createAndPrintSmall()
     {
         SLLSizeBenchmarks this;
         SLLSizeBenchmarks$Node temp$0, temp$1, temp$2, temp$3, temp$4;
 
         this := @this: SLLSizeBenchmarks;
-/*Source Line Pos Tag: sline: 182 eline: 200 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
-/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
-/*V[1] : true*/
+/*Source Line Pos Tag: sline: 181 eline: 198 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
 /*V[0] = true // this := @this: SLLSizeBenchmarks*/
 /*V[0] : true*/
+/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
+/*V[1] : true*/
 
         staticinvoke <SLLSizeBenchmarks: void analysisInitAllNulls()>();
-/*Source Line Pos Tag: sline: 184 eline: 184 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 183 eline: 183 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
 /*V[2] = InitAllNullsTransformer(V[1]) // staticinvoke <SLLSizeBenchmarks: void analysisInitAllNulls()>()*/
 /*V[2] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=null, temp$0=null}*/
 
         temp$0 = new SLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 185 eline: 185 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 184 eline: 184 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
 /*V[3] = AssignNewExprToLocalTransformer(V[2]) // temp$0 = new SLLSizeBenchmarks$Node*/
-/*V[3] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=null, temp$0=n0, n0~[temp$0]~>null}*/
+/*V[3] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=null, temp$0=n0, n0.next=null}*/
 
         specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>();
-/*Source Line Pos Tag: sline: 185 eline: 185 spos: 15 epos: 24 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 184 eline: 184 spos: 15 epos: 24 file: SLLSizeBenchmarks.java*/
 /*V[4] = V[3] // specialinvoke temp$0.<SLLSizeBenchmarks$Node: void <init>()>()*/
-/*V[4] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=null, temp$0=n0, n0~[temp$0]~>null}*/
+/*V[4] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=null, temp$0=n0, n0.next=null}*/
 
         temp$1 = new SLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 186 eline: 186 spos: 3 epos: 26 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 185 eline: 185 spos: 3 epos: 26 file: SLLSizeBenchmarks.java*/
 /*V[5] = AssignNewExprToLocalTransformer(V[4]) // temp$1 = new SLLSizeBenchmarks$Node*/
-/*V[5] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=n1, temp$0=n0, n0~[temp$0]~>null, n1~[temp$1]~>null}*/
+/*V[5] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=n1, temp$0=n0, n0.next=null, n1.next=null}*/
 
         specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>();
-/*Source Line Pos Tag: sline: 186 eline: 186 spos: 16 epos: 25 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 185 eline: 185 spos: 16 epos: 25 file: SLLSizeBenchmarks.java*/
 /*V[6] = V[5] // specialinvoke temp$1.<SLLSizeBenchmarks$Node: void <init>()>()*/
-/*V[6] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=n1, temp$0=n0, n0~[temp$0]~>null, n1~[temp$1]~>null}*/
+/*V[6] : graph = {temp$4=null, temp$3=null, temp$2=null, temp$1=n1, temp$0=n0, n0.next=null, n1.next=null}*/
 
         temp$2 = new SLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 187 eline: 187 spos: 3 epos: 26 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 186 eline: 186 spos: 3 epos: 26 file: SLLSizeBenchmarks.java*/
 /*V[7] = AssignNewExprToLocalTransformer(V[6]) // temp$2 = new SLLSizeBenchmarks$Node*/
-/*V[7] : graph = {temp$4=null, temp$3=null, temp$2=n2, temp$1=n1, temp$0=n0, n0~[temp$0]~>null, n1~[temp$1]~>null, n2~[temp$2]~>null}*/
+/*V[7] : graph = {temp$4=null, temp$3=null, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=null, n1.next=null, n2.next=null}*/
 
         specialinvoke temp$2.<SLLSizeBenchmarks$Node: void <init>()>();
-/*Source Line Pos Tag: sline: 187 eline: 187 spos: 16 epos: 25 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 186 eline: 186 spos: 16 epos: 25 file: SLLSizeBenchmarks.java*/
 /*V[8] = V[7] // specialinvoke temp$2.<SLLSizeBenchmarks$Node: void <init>()>()*/
-/*V[8] : graph = {temp$4=null, temp$3=null, temp$2=n2, temp$1=n1, temp$0=n0, n0~[temp$0]~>null, n1~[temp$1]~>null, n2~[temp$2]~>null}*/
+/*V[8] : graph = {temp$4=null, temp$3=null, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=null, n1.next=null, n2.next=null}*/
 
         temp$3 = new SLLSizeBenchmarks$Node;
-/*Source Line Pos Tag: sline: 188 eline: 188 spos: 3 epos: 26 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 187 eline: 187 spos: 3 epos: 26 file: SLLSizeBenchmarks.java*/
 /*V[9] = AssignNewExprToLocalTransformer(V[8]) // temp$3 = new SLLSizeBenchmarks$Node*/
-/*V[9] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0~[temp$0]~>null, n1~[temp$1]~>null, n2~[temp$2]~>null, n3~[temp$3]~>null}*/
+/*V[9] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=null, n1.next=null, n2.next=null, n3.next=null}*/
 
         specialinvoke temp$3.<SLLSizeBenchmarks$Node: void <init>()>();
-/*Source Line Pos Tag: sline: 188 eline: 188 spos: 16 epos: 25 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 187 eline: 187 spos: 16 epos: 25 file: SLLSizeBenchmarks.java*/
 /*V[10] = V[9] // specialinvoke temp$3.<SLLSizeBenchmarks$Node: void <init>()>()*/
-/*V[10] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0~[temp$0]~>null, n1~[temp$1]~>null, n2~[temp$2]~>null, n3~[temp$3]~>null}*/
+/*V[10] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=null, n1.next=null, n2.next=null, n3.next=null}*/
 
         temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$1;
-/*Source Line Pos Tag: sline: 189 eline: 189 spos: 8 epos: 11 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 188 eline: 188 spos: 8 epos: 11 file: SLLSizeBenchmarks.java*/
 /*V[11] = AssignLocalToNextFieldTransformer(V[10]) // temp$0.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$1*/
-/*V[11] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1~[temp$1]~>null, n2~[temp$2]~>null, n3~[temp$3]~>null}*/
+/*V[11] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=null, n2.next=null, n3.next=null}*/
 
         temp$1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$2;
-/*Source Line Pos Tag: sline: 190 eline: 190 spos: 9 epos: 12 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 189 eline: 189 spos: 9 epos: 12 file: SLLSizeBenchmarks.java*/
 /*V[12] = AssignLocalToNextFieldTransformer(V[11]) // temp$1.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$2*/
-/*V[12] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1~[loc_var1]~>n2, n2~[temp$2]~>null, n3~[temp$3]~>null}*/
+/*V[12] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=null, n3.next=null}*/
 
         temp$2.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$3;
-/*Source Line Pos Tag: sline: 191 eline: 191 spos: 9 epos: 12 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 190 eline: 190 spos: 9 epos: 12 file: SLLSizeBenchmarks.java*/
 /*V[13] = AssignLocalToNextFieldTransformer(V[12]) // temp$2.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next> = temp$3*/
-/*V[13] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1~[loc_var1]~>n2, n2~[loc_var2]~>n3, n3~[temp$3]~>null}*/
+/*V[13] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=n3, n3.next=null}*/
 
         temp$4 = temp$3.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>;
-/*Source Line Pos Tag: sline: 193 eline: 193 spos: 3 epos: 17 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 192 eline: 192 spos: 3 epos: 17 file: SLLSizeBenchmarks.java*/
 /*V[14] = AssignNextToLocalTransformer(V[13]) // temp$4 = temp$3.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
-/*V[14] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1~[loc_var1]~>n2, n2~[loc_var2]~>n3, n3~[temp$3]~>null}*/
+/*V[14] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=n3, n3.next=null}*/
 
         if temp$4 != null goto label1;
-/*Source Line Pos Tag: sline: 194 eline: 194 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 193 eline: 193 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/
 /*V[15] = !AssumeLocalEqNullTransformer(V[14]) // assume temp$4 != null*/
 /*V[15] : false*/
 /*V[16] = AssumeLocalEqNullTransformer(V[14]) // assume !(temp$4 != null)*/
-/*V[16] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1~[loc_var1]~>n2, n2~[loc_var2]~>n3, n3~[temp$3]~>null}*/
+/*V[16] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=n3, n3.next=null}*/
 
         goto label2;
-/*Source Line Pos Tag: sline: 194 eline: 194 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/
-/*V[17] = V[16] // goto [?= staticinvoke <SLLSizeBenchmarks: void error(java.lang.String)>("unexpected")]*/
-/*V[17] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1~[loc_var1]~>n2, n2~[loc_var2]~>n3, n3~[temp$3]~>null}*/
+/*Source Line Pos Tag: sline: 193 eline: 193 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/
+/*V[17] = V[16] // goto [?= return]*/
+/*V[17] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=n3, n3.next=null}*/
 
      label1:
         staticinvoke <SLLSizeBenchmarks: void error(java.lang.String)>("unexpected");
-/*Source Line Pos Tag: sline: 195 eline: 195 spos: 4 epos: 23 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 194 eline: 194 spos: 4 epos: 23 file: SLLSizeBenchmarks.java*/
 /*V[18] = AnalysisError(V[15]) // staticinvoke <SLLSizeBenchmarks: void error(java.lang.String)>("unexpected")*/
 /*V[18] : false*/
 
      label2:
-        staticinvoke <SLLSizeBenchmarks: void error(java.lang.String)>("unexpected");
-/*Source Line Pos Tag: sline: 198 eline: 198 spos: 3 epos: 22 file: SLLSizeBenchmarks.java*/
-/*V[20] = Join_SLLDomain(V[17], V[18]) // staticinvoke <SLLSizeBenchmarks: void error(java.lang.String)>("unexpected")*/
-/*V[20] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1~[loc_var1]~>n2, n2~[loc_var2]~>n3, n3~[temp$3]~>null}*/
-/*V[19] = AnalysisError(V[20]) // staticinvoke <SLLSizeBenchmarks: void error(java.lang.String)>("unexpected")*/
-/*V[19] : false*/
-/*Possible error!*/
-/*Possible error!*/
-/*Possible error!*/
-
         return;
-/*Source Line Pos Tag: sline: 198 eline: 198 spos: 3 epos: 22 file: SLLSizeBenchmarks.java*/
-/*V[21] = V[19] // return*/
-/*V[21] : false*/
+/*Source Line Pos Tag: sline: 194 eline: 194 spos: 4 epos: 23 file: SLLSizeBenchmarks.java*/
+/*V[19] = V[20] // return*/
+/*V[19] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=n3, n3.next=null}*/
+/*V[20] = Join_SLLDomain(V[17], V[18]) // return*/
+/*V[20] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=n3, n3.next=null}*/
     }
 
-/*[Ljava.lang.String;@53f5e147*/
+/*[Ljava.lang.String;@7aa78afc*/
 /*8*/
     public void <init>()
     {
