@@ -31,7 +31,7 @@ import soot.jimple.internal.JimpleLocal;
  * @author romanm
  */
 public class SLLGraph {
-	public final Node nullNode = new Node(null, SLLDomain.int2local(0));
+	public final Node nullNode = new Node(null, null);
 
 	protected Collection<Node> nodes = new ArrayList<Node>();
 	protected Map<Local, Node> pointsTo = new TreeMap<Local, Node>(new LocalComparator());
@@ -93,7 +93,7 @@ public class SLLGraph {
 			Node otherNode = matching.get(node);
 			result.pointsTo.put(var, otherNode);
 		}
-
+		result.sizes = this.sizes.copy();
 		return result;
 	}
 
@@ -111,6 +111,8 @@ public class SLLGraph {
 	}
 
 	public Node pointsTo(Local v) {
+		if(!pointsTo.containsKey(v))
+			return nullNode;
 		return pointsTo.get(v);
 	}
 
@@ -229,7 +231,6 @@ public class SLLGraph {
 
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		ArrayList<String> substrings = new ArrayList<>();
@@ -253,7 +254,10 @@ public class SLLGraph {
 				continue;
 			assert n.next != null;
 			String nextNodeName = nodeToName.get(n.next);
-			String edgeLenStr = n.edgeLen.getNumber() == 1 ? ".next=" : "~["+n.edgeLen+"]~>";
+			int len = getConstant(this, n.edgeLen, ZoneFactoid.ZERO_VAR).value;
+			String edgeLenStr = len == 1 ?
+					".next=" 
+					: "~["+len+"]~>";
 			substrings.add(nodeToName.get(n) + edgeLenStr + nextNodeName);
 		}
 		StringBuilder result = new StringBuilder("graph = {");
@@ -340,7 +344,7 @@ public class SLLGraph {
     }
 	private IntConstant getConstant(SLLGraph graph, Local a, Local b){
 		for(ZoneFactoid zf: graph.sizes.getFactoids()){
-			if(zf.equalVars(a,  b))
+			if(zf.lhs==a && zf.rhs == b)
 				return zf.bound;
 		}
 		return null;

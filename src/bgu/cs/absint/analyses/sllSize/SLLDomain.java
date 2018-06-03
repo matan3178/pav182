@@ -15,6 +15,7 @@ import bgu.cs.absint.AssumeTransformer;
 import bgu.cs.absint.BinaryOperation;
 import bgu.cs.absint.ErrorState;
 import bgu.cs.absint.IdOperation;
+import bgu.cs.absint.Operation;
 import bgu.cs.absint.UnaryOperation;
 import bgu.cs.absint.analyses.ap.APState;
 import bgu.cs.absint.analyses.zone.ZoneDomain;
@@ -22,6 +23,7 @@ import bgu.cs.absint.analyses.zone.ZoneFactoid;
 import bgu.cs.absint.analyses.zone.ZoneState;
 import bgu.cs.absint.constructor.DisjunctiveState;import bgu.cs.absint.constructor.Factoid;
 import bgu.cs.absint.soot.TransformerMatcher;
+import bgu.cs.util.graph.visualization.GraphToDOT;
 import soot.IntType;
 import soot.Local;
 import soot.RefType;
@@ -150,9 +152,14 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	public DisjunctiveState<SLLGraph> reduce(DisjunctiveState<SLLGraph> input) {
 		if (input == getTop())
 			return getTop();
-		//TODO
-		return input;
-		
+		Set<SLLGraph> graphSet = new HashSet<>();
+		for(SLLGraph graph:input.getDisjuncts())
+			graphSet.add(graph.copy());
+		for(SLLGraph g:graphSet){
+			g.sizes = ZoneDomain.v().reduce(g.sizes);
+		}
+		DisjunctiveState<SLLGraph> result= new DisjunctiveState<>(graphSet);
+		return result;		
 	}
 	
 	/**
@@ -224,6 +231,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 */
 	public SLLGraph makeAllNullsGraph() {
 		SLLGraph allNullsGraph = new SLLGraph();
+		allNullsGraph.sizes = new ZoneState();
 		for (Local var : locals) {
 			if (isListRefType(var))
 				allNullsGraph.mapLocal(var, allNullsGraph.nullNode);
@@ -238,6 +246,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	public DisjunctiveState<SLLGraph> initNulls() {
 		DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
 				makeAllNullsGraph());
+		
 		return result;
 	}
 
@@ -246,29 +255,36 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 * to null, except a given list variable, which points to an acyclic list of
 	 * size >= 0.
 	 */
-	public static Local int2local(int x)//TODO
+	static int num = 1;
+	public static Local makeLocal()//TODO
 	{
-		JimpleLocal  j =  new JimpleLocal("loc_var"+counter++,IntType.v());
-		j.setNumber(x);
+		JimpleLocal  j =  new JimpleLocal("loc_var"+counter,IntType.v());
+		if(counter == 2){
+			System.out.println("WHAT");
+		}
+		j.setNumber(counter++);
 		return j;
 	}
-	private Local int2local(Local x)//TODO
-	{
-		JimpleLocal  j =  new JimpleLocal("loc_var"+counter++,IntType.v());
-		return j;
-	}
+//	private Local int2local(Local x)//TODO
+//	{
+//		JimpleLocal  j =  new JimpleLocal("loc_var"+counter++,IntType.v());
+//		return j;
+//	}
 	public DisjunctiveState<SLLGraph> initAcyclic(Local x) {
 		SLLGraph graph1 = makeAllNullsGraph();
-		Local local1 = int2local(1);
-		Node ptXOne = new Node(graph1.nullNode, local1);//TODO
+		Local local1 = makeLocal();
 		graph1.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
+		Node ptXOne = new Node(graph1.nullNode, local1);//TODO
+		graph1.sizes = new ZoneState();
+		
 		graph1.addNode(ptXOne);
 		graph1.mapLocal(x, ptXOne);
 
 		SLLGraph graph2 = makeAllNullsGraph();
-		Local local2 = int2local(2);
-		Node ptXGt1 = new Node(graph2.nullNode, local2); //SUPER TODO
+		Local local2 = makeLocal();
 		graph1.sizes.addFactoid(ZoneFactoid.ZERO_VAR, local2, IntConstant.v(-2));
+		Node ptXGt1 = new Node(graph2.nullNode, local2); //SUPER TODO
+		
 
 		graph2.addNode(ptXGt1);
 		graph2.mapLocal(x, ptXGt1);
@@ -287,17 +303,15 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	public SLLGraph focusOne(SLLGraph graph, Local var) {
 		//TODO
 		SLLGraph result = graph.copy();
-		Local local1 = int2local(1);
-		
-		
+		Local local1 = makeLocal();
+		result.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(1));	
 		result.sizes.removeVar(var);
 		result.sizes.addFactoid(var, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
 		Node rhsNode = result.pointsTo(var);
 		Node rhsNextNode = rhsNode.next;
-		
 		Node node = new Node(rhsNextNode, local1); 
 		rhsNode.next = node;
-		result.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(1));	
+		
 		
 		return result;
 	}
@@ -310,7 +324,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	 */
 	public SLLGraph focusGtOne(SLLGraph graph, Local var) {
 		SLLGraph result = graph.copy();
-		Local local1 = int2local(1);
+		Local local1 = makeLocal();
 		
 		Collection<ZoneFactoid> collec = result.sizes.getFactoids();
 		int len = -1;
@@ -318,6 +332,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			if(zf.equalVars(var, ZoneFactoid.ZERO_VAR))
 				len = zf.bound.value;
 		}
+		result.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(len-1));
 		if(len == -1)
 			throw new RuntimeException("FCK");
 		result.sizes.removeVar(var);
@@ -327,7 +342,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		
 		Node node = new Node(rhsNextNode, local1); 
 		rhsNode.next = node;
-		result.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(len-1));	
+			
 		
 		return result;
 	}
@@ -362,11 +377,14 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					
 					int newVal = getConstant(result, a,  ZoneFactoid.ZERO_VAR).value;
 					newVal += getConstant(result, b,  ZoneFactoid.ZERO_VAR).value;
-					Local newLocal = int2local(3);
-					
-					result.sizes.removeVar(b);
 					result.sizes.removeVar(a);
-					result.sizes.addFactoid(newLocal, ZoneFactoid.ZERO_VAR, IntConstant.v(newVal));
+					result.sizes.addFactoid(a, ZoneFactoid.ZERO_VAR, IntConstant.v(newVal));
+					result.sizes.removeVar(b);
+					result.unmapLocal(b);
+//					result.removeNode(result.pointsTo(b));
+//					result.sizes.removeVar(a);
+//					result.unmapLocal(a);
+					
 				}
 			}
 		}
@@ -377,7 +395,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 	
 	private IntConstant getConstant(SLLGraph graph, Local a, Local b){
 		for(ZoneFactoid zf: graph.sizes.getFactoids()){
-			if(zf.equalVars(a,  b))
+			if(zf.lhs==a && zf.rhs == b)
 				return zf.bound;
 		}
 		return null;
@@ -470,6 +488,10 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				IntConstant c =  (IntConstant) expr.getArg(2);
 				transformer = new AnalysisLengthDiffTransformer(a,b,c.value);
 			}
+			else if(methodName.equals("error")){
+				transformer = new AnalysisError(expr.getArg(0)+"");
+				
+			}
 			
 		}
 
@@ -555,7 +577,6 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			for (SLLGraph graph : input) {
 				SLLGraph disjunct = graph.copy();
 				disjunct.unmapLocal(lhs);
-				Local newLocal = int2local(1);
 				disjunct.sizes.removeVar(lhs);
 				Node newNode = new Node(disjunct.nullNode, lhs);//TODO
 				disjunct.sizes.addFactoid(lhs, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
@@ -568,6 +589,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			return result;
 		}
 	}
+
 	protected class AnalysisLengthDiffTransformer extends
 	UnaryOperation<DisjunctiveState<SLLGraph>> {
 		private int diff;
@@ -594,25 +616,42 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					nodeA = nodeA.next;
 				}
 				while(nodeB != disjunct.nullNode){
-					Local localB = nodeA.edgeLen;
+					Local localB = nodeB.edgeLen;
 					lenB += getConstant(disjunct, localB, ZoneFactoid.ZERO_VAR).value;
 					nodeB = nodeB.next;
 				}
 				if(Math.abs(lenA - lenB) == diff)
 					disjuncts.add(disjunct);
 				else
-					return new ErrorDisjunctiveState();
+					return new ErrorDisjunctiveState("AnalysisLengthDiffTransformer ERROR!");
 			}
 			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
 					disjuncts);
 			return result;
 		}
 	}
+	protected class AnalysisError extends
+	UnaryOperation<DisjunctiveState<SLLGraph>> {
+		private String message;
+		public AnalysisError(String message) {
+			this.message=message;
+		}
+		
+		@Override
+		public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
+			ErrorDisjunctiveState result = new ErrorDisjunctiveState(message);
+			return result;
+		}
+	}
 	private class ErrorDisjunctiveState extends DisjunctiveState<SLLGraph> implements ErrorState{
 
+		String message;
+		public ErrorDisjunctiveState(String message){
+			this.message = message;
+		}
 		@Override
 		public String getMessages() {
-			return "ErrorDisjunctiveState";
+			return message;
 		}
 		
 	}
@@ -666,6 +705,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				SLLGraph disjunct = graph.copy();
 				disjunct.unmapLocal(lhs);
 				disjunct.mapLocal(lhs, disjunct.pointsTo(rhs));
+				disjunct.sizes.addFactoid(lhs, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
 				disjuncts.add(disjunct);
 			}
 			DisjunctiveState<SLLGraph> result = new DisjunctiveState<>(
@@ -694,9 +734,9 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			Set<SLLGraph> disjuncts = new HashSet<>();
 			for (SLLGraph graph : input) {
 				Node rhsNode = graph.pointsTo(rhs);
-				if (rhsNode == graph.nullNode) {
+				if (rhsNode == graph.nullNode ) {
 					// Skip this graph as it raises a NullPointerException.
-				} else if (rhsNode.edgeLen.getNumber() == 1) { //TODO
+				} else if (getConstant(graph, rhs, ZoneFactoid.ZERO_VAR).value == 1) { 
 					SLLGraph disjunct = graph.copy();
 					Node rhsNextNode = disjunct.pointsTo(rhs).next;
 					disjunct.unmapLocal(lhs);
@@ -746,7 +786,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 				} else {
 					SLLGraph disjunct = graph.copy();
 					lhsNode.next = disjunct.nullNode;
-					lhsNode.edgeLen = int2local(1);//TODO
+					lhsNode.edgeLen = makeLocal();//TODO//TODO
+					disjunct.sizes.addFactoid(lhsNode.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
 					disjuncts.add(disjunct);
 				}
 			}
@@ -782,7 +823,8 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 					Node lhsNode = disjunct.pointsTo(lhs);
 					Node rhsNode = disjunct.pointsTo(rhs);
 					lhsNode.next = rhsNode;
-					lhsNode.edgeLen = int2local(1);//TODO
+					lhsNode.edgeLen = makeLocal();//TODO
+					disjunct.sizes.addFactoid(lhsNode.edgeLen, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
 					disjuncts.add(disjunct);
 				}
 			}

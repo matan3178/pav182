@@ -100,21 +100,21 @@ public class SLLSizeBenchmarks {
 	 * 
 	 * @return the cell holds the given value, or null if there is none.
 	 */
-	/*
-	public Node find(Node head, int key) {
-		analysisInitAcyclic(head); // Start with an acyclic list.
-		Node result = null;
-		Node curr = head;
-		while (curr != null) {
-			if (curr.data == key) {
-				result = curr;
-				break;
-			}
-			curr = curr.next;
-		}
-		return result;
-	}
-	*/
+	
+//	public Node find(Node head, int key) {
+//		analysisInitAcyclic(head); // Start with an acyclic list.
+//		Node result = null;
+//		Node curr = head;
+//		while (curr != null) {
+//			if (curr.data == key) {
+//				result = curr;
+//				break;
+//			}
+//			curr = curr.next;
+//		}
+//		return result;
+//	}
+//	
 
 	/**
 	 * Creates two equal-sized acyclic singly-linked lists of a given size and
@@ -125,24 +125,27 @@ public class SLLSizeBenchmarks {
 	 *            The number of cells in the list.
 	 * @return An acyclic singly-linked list.
 	 */
-	public Node createAndPrint(int size)
-	{
-
-			Node head1 = new Node();
-			Node mat1 = new Node();
-			head1.next = mat1;
-			
-			Node mat2 = new Node();
-			Node mat3 = new Node();
-			Node head2 = new Node();
-			head1.next = mat2;
-			head1.next.next = mat3;
-			
-			analysisLengthDiff(head1, head2, 0, "Unable to assert size difference!");
-			return head1;
-	}
-	/*
+//	public Node nitzan(int size)
+//	{
+//		analysisInitAllNulls();
+//		Node head1 = new Node();
+//		Node mat1 = new Node();
+//		head1.next = mat1;
+//		
+//		Node mat2 = new Node();
+//		Node mat3 = new Node();
+//		Node head2 = new Node();
+//		head1.next = mat2;
+//		head1.next.next = mat3;
+//		
+//		analysisLengthDiff(head1, head2, -1, "Unable to assert size difference!");
+//		analysisLengthDiff(head2, head1, -1, "Unable to assert size difference!");
+//
+//		return head1;
+//	}
+	
 	public Node createAndPrint2(int size) {
+		analysisInitAllNulls();
 		Node head1 = null;
 		Node head2 = null;
 		for (int i = 0; i < size; ++i) {
@@ -151,7 +154,7 @@ public class SLLSizeBenchmarks {
 			n1.data = i;
 			head1 = n1;
 			Node n2 = new Node();
-			n2.next = head1;
+			n2.next = head2;
 			n2.data = i;
 			head2 = n2;
 		}
@@ -161,31 +164,37 @@ public class SLLSizeBenchmarks {
 		analysisLengthDiff(head1, head2, 0, "Unable to assert size difference!");
 		analysisLengthDiff(head2, head1, 0, "Unable to assert size difference!");
 
-		Node t1 = head1;
-		Node t2 = head2;
-		while (t1 != null) {
+		Node t7 = head1;
+		Node t8 = head2;
+		while (t7 != null) {
 //			System.out.println(t1.data);
 //			System.out.println(t2.data);
-			t1 = t1.next;
+			t7 = t7.next;
 			// Since we know that the two lists have the same length, the next dereference
 			// is safe.
-			t2 = t2.next;
+			t8 = t8.next;
 		}
 		return head1;
 	}
 
-
+//	public void createAndPrintSmall() {
+//		
+//		analysisInitAllNulls();
+//		Node head = new Node();
+//		Node nitz1 = new Node();
+//		Node nitz2 = new Node();
+//		Node nitz3 = new Node();
+//		head.next = nitz1;
+//		nitz1.next = nitz2;
+//		nitz2.next = nitz3;
+//		Node t;
+//		t = nitz3.next;
+//		if (t != null) {
+//			error("unexpected");
+//
+//		}
+//		
+//	}
 	
-	public void createAndPrintSmall() {
-		Node head = new Node();
-		head.next = new Node();
-		head.next.next = new Node();
-		head.next.next.next = new Node();
-		Node t = head.next.next.next.next;
-		if (t != null) {
-//			System.out.println("unexpected");
-		}
-	}
-	*/
 
 }
