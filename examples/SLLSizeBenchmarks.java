@@ -101,20 +101,22 @@ public class SLLSizeBenchmarks {
 	 * @return the cell holds the given value, or null if there is none.
 	 */
 	
-//	public Node find(Node head, int key) {
-//		analysisInitAcyclic(head); // Start with an acyclic list.
-//		Node result = null;
-//		Node curr = head;
-//		while (curr != null) {
-//			if (curr.data == key) {
-//				result = curr;
-//				break;
-//			}
-//			curr = curr.next;
-//		}
-//		return result;
-//	}
-//	
+	public Node find(Node head, int key) {
+		analysisInitAcyclic(head); // Start with an acyclic list.
+		Node result = null;
+		Node curr = head;
+		while (curr != null) {
+			if (curr.data == key) {
+				result = curr;
+				break;
+			}
+			curr = curr.next;
+		}
+		if(result.data != key)
+			error("Data != Key");
+		return result;
+	}
+	
 
 	/**
 	 * Creates two equal-sized acyclic singly-linked lists of a given size and
@@ -143,7 +145,7 @@ public class SLLSizeBenchmarks {
 
 		return head1;
 	}
-	
+//	
 	public Node createAndPrint2(int size) {
 		analysisInitAllNulls();
 		Node head1 = null;

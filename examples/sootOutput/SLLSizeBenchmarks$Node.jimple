@@ -4,7 +4,7 @@ public static class SLLSizeBenchmarks$Node extends java.lang.Object
     public SLLSizeBenchmarks$Node next;
     public int data;
 
-/*[Ljava.lang.String;@65f65506*/
+/*[Ljava.lang.String;@92c3193*/
 /*9*/
     public void <init>()
     {

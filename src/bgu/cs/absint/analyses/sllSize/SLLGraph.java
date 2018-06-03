@@ -349,7 +349,7 @@ public class SLLGraph {
 			if(zf.lhs==a && zf.rhs == b)
 				return zf.bound;
 		}
-		return null;
+		return IntConstant.v(1);
 	}
 
  

@@ -1,36 +1,30 @@
 package bgu.cs.absint.analyses.sllSize;
 
-import java.io.IOError;
-import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
-
-import javax.management.RuntimeErrorException;
 
 import bgu.cs.absint.AbstractDomain;
 import bgu.cs.absint.AssumeTransformer;
-import bgu.cs.absint.BinaryOperation;
 import bgu.cs.absint.ErrorState;
 import bgu.cs.absint.IdOperation;
-import bgu.cs.absint.Operation;
 import bgu.cs.absint.UnaryOperation;
-import bgu.cs.absint.analyses.ap.APState;
 import bgu.cs.absint.analyses.zone.ZoneDomain;
 import bgu.cs.absint.analyses.zone.ZoneFactoid;
 import bgu.cs.absint.analyses.zone.ZoneState;
-import bgu.cs.absint.constructor.DisjunctiveState;import bgu.cs.absint.constructor.Factoid;
+import bgu.cs.absint.constructor.DisjunctiveState;
 import bgu.cs.absint.soot.TransformerMatcher;
-import bgu.cs.util.graph.visualization.GraphToDOT;
 import soot.IntType;
 import soot.Local;
 import soot.RefType;
 import soot.SootField;
 import soot.Type;
 import soot.Unit;
-import soot.Value;
 import soot.jimple.AssignStmt;
 import soot.jimple.IfStmt;
 import soot.jimple.IntConstant;
@@ -275,7 +269,6 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		Local local1 = makeLocal();
 		graph1.sizes.addFactoid(local1, ZoneFactoid.ZERO_VAR, IntConstant.v(1));
 		Node ptXOne = new Node(graph1.nullNode, local1);//TODO
-		graph1.sizes = new ZoneState();
 		
 		graph1.addNode(ptXOne);
 		graph1.mapLocal(x, ptXOne);
@@ -481,7 +474,7 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 			} else if (methodName.equals("analysisAssertDisjoint")) {
 				// transformer = new AssertDisjointTransformer();
 			} else if (methodName.equals("analysisAssertNoGarbage")) {
-				// transformer = new AssertNoGarbageTransformer();
+				 transformer = new AssertNoGarbageTransformer(expr.getArg(0)+"");
 			} else if (methodName.equals("analysisLengthDiff")){
 				Local a = (Local)expr.getArg(0);
 				Local b = (Local) expr.getArg(1);
@@ -590,6 +583,37 @@ public class SLLDomain extends AbstractDomain<DisjunctiveState<SLLGraph>, Unit> 
 		}
 	}
 
+	protected class AssertNoGarbageTransformer extends
+	UnaryOperation<DisjunctiveState<SLLGraph>> {
+		String msg;
+		public AssertNoGarbageTransformer(String message){
+			msg = message;
+		}
+		@Override
+		public DisjunctiveState<SLLGraph> apply(DisjunctiveState<SLLGraph> input) {
+			for(SLLGraph graph: input.getDisjuncts()){
+				Map<Node, Boolean> nodesMap = new HashMap<>();
+				for(Node n:graph.nodes)
+					nodesMap.put(n, false);
+				for(Local l:graph.pointsTo.keySet()){
+					Node n = graph.pointsTo(l);
+					while(n != null){
+						nodesMap.put(n, true);
+						n = n.next;
+					}					
+				}
+				boolean flag=false;
+				for(Entry<Node,Boolean> s : nodesMap.entrySet()){
+					if(!s.getValue())
+						flag=true;
+				}
+				if(flag)
+					return new ErrorDisjunctiveState(msg);
+			}
+			
+			return input;
+		}
+	}
 	protected class AnalysisLengthDiffTransformer extends
 	UnaryOperation<DisjunctiveState<SLLGraph>> {
 		private int diff;
