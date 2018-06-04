@@ -196,12 +196,12 @@ public class SLLSizeBenchmarks extends java.lang.Object
      label1:
         if curr != null goto label2;
 /*Source Line Pos Tag: sline: 108 eline: 108 spos: 10 epos: 21 file: SLLSizeBenchmarks.java*/
-/*V[9] = JoinLoop_SLLDomain(V[6], V[19]) // if curr != null goto temp$0 = curr.<SLLSizeBenchmarks$Node: int data>*/
-/*V[9] : or(graph = {temp$1=null, curr=null, result=null, head=null}, graph = {temp$1=null, curr=n0, result=null, head=n0, n0.next=null})*/
 /*V[8] = AssumeLocalEqNullTransformer(V[9]) // assume !(curr != null)*/
 /*V[8] : graph = {temp$1=null, curr=null, result=null, head=null}*/
 /*V[7] = !AssumeLocalEqNullTransformer(V[9]) // assume curr != null*/
 /*V[7] : graph = {temp$1=null, curr=n0, result=null, head=n0, n0.next=null}*/
+/*V[9] = JoinLoop_SLLDomain(V[6], V[19]) // if curr != null goto temp$0 = curr.<SLLSizeBenchmarks$Node: int data>*/
+/*V[9] : or(graph = {temp$1=null, curr=null, result=null, head=null}, graph = {temp$1=null, curr=n0, result=null, head=n0, n0.next=null})*/
 
         goto label5;
 /*Source Line Pos Tag: sline: 108 eline: 108 spos: 10 epos: 21 file: SLLSizeBenchmarks.java*/
@@ -263,10 +263,10 @@ public class SLLSizeBenchmarks extends java.lang.Object
 
         if temp$2 != key goto label6;
 /*Source Line Pos Tag: sline: 115 eline: 115 spos: 6 epos: 23 file: SLLSizeBenchmarks.java*/
-/*V[22] = !AssumeLocalEqLocalTransformer(V[20]) // assume temp$2 != key*/
-/*V[22] : false*/
 /*V[23] = AssumeLocalEqLocalTransformer(V[20]) // assume !(temp$2 != key)*/
 /*V[23] : or(graph = {temp$1=null, curr=null, result=null, head=null}, graph = {temp$1=null, curr=n0, result=n0, head=n0, n0.next=null})*/
+/*V[22] = !AssumeLocalEqLocalTransformer(V[20]) // assume temp$2 != key*/
+/*V[22] : false*/
 
         goto label7;
 /*Source Line Pos Tag: sline: 115 eline: 115 spos: 6 epos: 23 file: SLLSizeBenchmarks.java*/
@@ -282,14 +282,14 @@ public class SLLSizeBenchmarks extends java.lang.Object
      label7:
         return result;
 /*Source Line Pos Tag: sline: 117 eline: 117 spos: 3 epos: 16 file: SLLSizeBenchmarks.java*/
-/*V[27] = Join_SLLDomain(V[24], V[25]) // return result*/
-/*V[27] : or(graph = {temp$1=null, curr=null, result=null, head=null}, graph = {temp$1=null, curr=n0, result=n0, head=n0, n0.next=null})*/
 /*V[26] = V[27] // return result*/
 /*V[26] : or(graph = {temp$1=null, curr=null, result=null, head=null}, graph = {temp$1=null, curr=n0, result=n0, head=n0, n0.next=null})*/
+/*V[27] = Join_SLLDomain(V[24], V[25]) // return result*/
+/*V[27] : or(graph = {temp$1=null, curr=null, result=null, head=null}, graph = {temp$1=null, curr=n0, result=n0, head=n0, n0.next=null})*/
     }
 
 /*[Ljava.lang.String;@7f67f806*/
-    public SLLSizeBenchmarks$Node nitzan(int)
+    public SLLSizeBenchmarks$Node checkAnalysisDiff(int)
     {
         SLLSizeBenchmarks this;
         int size;
@@ -297,13 +297,13 @@ public class SLLSizeBenchmarks extends java.lang.Object
 
         this := @this: SLLSizeBenchmarks;
 /*Source Line Pos Tag: sline: 130 eline: 147 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
-/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
-/*V[1] : true*/
 /*V[0] = true // this := @this: SLLSizeBenchmarks*/
 /*V[0] : true*/
+/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
+/*V[1] : true*/
 
         size := @parameter0: int;
-/*Source Line Pos Tag: sline: 130 eline: 130 spos: 21 epos: 28 file: SLLSizeBenchmarks.java*/
+/*Source Line Pos Tag: sline: 130 eline: 130 spos: 32 epos: 39 file: SLLSizeBenchmarks.java*/
 /*V[2] = V[1] // size := @parameter0: int*/
 /*V[2] : true*/
 
@@ -440,12 +440,12 @@ public class SLLSizeBenchmarks extends java.lang.Object
      label1:
         if i < size goto label2;
 /*Source Line Pos Tag: sline: 153 eline: 153 spos: 19 epos: 26 file: SLLSizeBenchmarks.java*/
-/*V[9] = JoinLoop_SLLDomain(V[6], V[23]) // if i < size goto temp$0 = new SLLSizeBenchmarks$Node*/
-/*V[9] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
-/*V[7] = V[9] // assume i < size*/
-/*V[7] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
 /*V[8] = V[9] // assume !(i < size)*/
 /*V[8] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+/*V[7] = V[9] // assume i < size*/
+/*V[7] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
+/*V[9] = JoinLoop_SLLDomain(V[6], V[23]) // if i < size goto temp$0 = new SLLSizeBenchmarks$Node*/
+/*V[9] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
 
         goto label3;
 /*Source Line Pos Tag: sline: 153 eline: 153 spos: 19 epos: 26 file: SLLSizeBenchmarks.java*/
@@ -547,12 +547,12 @@ public class SLLSizeBenchmarks extends java.lang.Object
      label4:
         if t7 != null goto label5;
 /*Source Line Pos Tag: sline: 172 eline: 172 spos: 10 epos: 19 file: SLLSizeBenchmarks.java*/
-/*V[31] = JoinLoop_SLLDomain(V[28], V[37]) // if t7 != null goto temp$3 = t7.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
-/*V[31] : or(graph = {temp$4=null, temp$3=null, t8=n1, t7=n0, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
 /*V[30] = AssumeLocalEqNullTransformer(V[31]) // assume !(t7 != null)*/
 /*V[30] : or(graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
 /*V[29] = !AssumeLocalEqNullTransformer(V[31]) // assume t7 != null*/
 /*V[29] : graph = {temp$4=null, temp$3=null, t8=n1, t7=n0, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}*/
+/*V[31] = JoinLoop_SLLDomain(V[28], V[37]) // if t7 != null goto temp$3 = t7.<SLLSizeBenchmarks$Node: SLLSizeBenchmarks$Node next>*/
+/*V[31] : or(graph = {temp$4=null, temp$3=null, t8=n1, t7=n0, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=n1, temp$0=n0, head2=n1, head1=n0, n0.next=null, n1.next=null}, graph = {temp$4=null, temp$3=null, t8=null, t7=null, temp$1=null, temp$0=null, head2=null, head1=null})*/
 
         goto label6;
 /*Source Line Pos Tag: sline: 172 eline: 172 spos: 10 epos: 19 file: SLLSizeBenchmarks.java*/
@@ -600,10 +600,10 @@ public class SLLSizeBenchmarks extends java.lang.Object
 
         this := @this: SLLSizeBenchmarks;
 /*Source Line Pos Tag: sline: 183 eline: 200 spos: 2 epos: 2 file: SLLSizeBenchmarks.java*/
-/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
-/*V[1] : true*/
 /*V[0] = true // this := @this: SLLSizeBenchmarks*/
 /*V[0] : true*/
+/*V[1] = V[0] // this := @this: SLLSizeBenchmarks*/
+/*V[1] : true*/
 
         staticinvoke <SLLSizeBenchmarks: void analysisInitAllNulls()>();
 /*Source Line Pos Tag: sline: 185 eline: 185 spos: 3 epos: 25 file: SLLSizeBenchmarks.java*/
@@ -672,10 +672,10 @@ public class SLLSizeBenchmarks extends java.lang.Object
 
         if temp$4 != null goto label1;
 /*Source Line Pos Tag: sline: 195 eline: 195 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/
-/*V[16] = AssumeLocalEqNullTransformer(V[14]) // assume !(temp$4 != null)*/
-/*V[16] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=n3, n3.next=null}*/
 /*V[15] = !AssumeLocalEqNullTransformer(V[14]) // assume temp$4 != null*/
 /*V[15] : false*/
+/*V[16] = AssumeLocalEqNullTransformer(V[14]) // assume !(temp$4 != null)*/
+/*V[16] : graph = {temp$4=null, temp$3=n3, temp$2=n2, temp$1=n1, temp$0=n0, n0.next=n1, n1.next=n2, n2.next=n3, n3.next=null}*/
 
         goto label2;
 /*Source Line Pos Tag: sline: 195 eline: 195 spos: 7 epos: 15 file: SLLSizeBenchmarks.java*/

@@ -6,7 +6,7 @@
  * 
  * @author romanm
  */
-public class SLLSizeBenchmarks {
+public class MySLLSizeBenchmarks {
 	public static class Node {
 		public Node next;
 		public int data;

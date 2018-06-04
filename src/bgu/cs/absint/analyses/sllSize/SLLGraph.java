@@ -10,7 +10,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import bgu.cs.absint.analyses.sll.AbsLen;
 import bgu.cs.absint.analyses.zone.ZoneFactoid;
 import bgu.cs.absint.analyses.zone.ZoneState;
 import bgu.cs.absint.soot.LocalComparator;
